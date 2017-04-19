@@ -170,8 +170,9 @@ xterm*|rxvt*)
     ;;
 esac
 
-# added by Anaconda3 4.3.0 installer
+# Add to path
 export PATH="/home/carter/anaconda3/bin:$PATH"
+export GOPATH=$HOME/.go
 
 # Print screenfetch information at startup
 if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
