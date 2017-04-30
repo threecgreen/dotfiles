@@ -172,6 +172,7 @@ esac
 
 # Add to path
 export PATH="/home/carter/anaconda3/bin:$PATH"
+export PATH="$PATH:$HOME/bin"
 export GOPATH=$HOME/.go
 
 # Print screenfetch information at startup
