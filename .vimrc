@@ -17,10 +17,21 @@ imap jk <Esc>
 
 " Add autocomplete closing parentheses and such
 " Escape using Ctrl-V before typing the mapped character
-ino " ""<left>
-ino ' ''<left>
-ino ( ()<left>
-ino [ []<left>
-ino { {}<left>
-ino {<CR> {<CR>}<ESC>0
+" ino " ""<left>
+" ino ' ''<left>
+" ino ( ()<left>
+" ino [ []<left>
+" ino { {}<left>
+" ino {<CR> {<CR>}<ESC>0
 
+" Tell which characters to show for expanded \t
+" trailing whitespace and end-of-lines
+if &listchars ==# 'eol:$'
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+set list
+
+
+" Also highlight all tabs and trailing whitespace characters.
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\|\t/
