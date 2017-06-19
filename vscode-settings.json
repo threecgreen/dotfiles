@@ -1,5 +1,6 @@
 // Visual Studio Code settings
-// Place in: ~/.config/Code/User/settings.json
+// Place in: ~/.config/Code/User/settings.json on Linux
+//           ~/Library/Application Support/Code/User/settings.json on Mac
 {
     "editor.fontFamily": "Hasklig",
     "editor.fontSize": 14,
