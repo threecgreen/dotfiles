@@ -186,3 +186,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E01;32m'
+
+# added by travis gem
+[ -f /home/carter/.travis/travis.sh ] && source /home/carter/.travis/travis.sh

@@ -1,0 +1,11 @@
+// Visual Studio Code settings
+// Place in: ~/.config/Code/User/settings.json
+{
+    "editor.fontFamily": "Hasklig",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.renderIndentGuides": true,
+    "window.zoomLevel": 0,
+    "vim.disableAnnoyingNeovimMessage": true
+}
