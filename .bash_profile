@@ -25,3 +25,6 @@ export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
+
+# added by Anaconda2 4.4.0 installer
+export PATH="/Users/gree/anaconda2/bin:$PATH"
