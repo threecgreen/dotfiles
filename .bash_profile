@@ -1,21 +1,20 @@
 # export PS1="\u@\h:\w\$ "
 export PS1='\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[00;34m\]\w\[\033[00m\]\$ '
 
-
 # ls  aliases
 alias ls='ls -G'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Print screenfetch information at startup
 if [ -f /usr/bin/neofetch ] || [ -f /usr/local/bin/neofetch ] ; then
     neofetch;
+fi
+
+# Include bash alias file if it exists
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 # Colored manpages
