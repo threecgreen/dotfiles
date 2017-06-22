@@ -26,4 +26,9 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 
 # added by Anaconda2 4.4.0 installer
-export PATH="/Users/gree/anaconda2/bin:$PATH"
+export PATH="$HOME/anaconda2/bin:$PATH"
+
+# include local additions/modifications if they exist
+if [-f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
