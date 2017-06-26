@@ -29,6 +29,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export PATH="$HOME/anaconda2/bin:$PATH"
 
 # include local additions/modifications if they exist
-if [-f ~/.bash_local ]; then
+if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
