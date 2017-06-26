@@ -186,6 +186,6 @@ export LESS_TERMCAP_us=$'\E01;32m'
 [ -f $HOME.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # include local additions/modifications if they exist
-if [-f ~/.bash_local ]; then
+if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
