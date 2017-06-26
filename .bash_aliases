@@ -15,7 +15,7 @@ alias l="ls -CF"
 alias mkdir="mkdir -pv"
 
 # Alias nvim to vim and vi if installed
-if [[ -f /usr/local/bin/nvim ]];;
+if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
     alias vi="nvim"
     alias vim="nvim"
 fi

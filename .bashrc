@@ -136,7 +136,7 @@ xterm*|rxvt*)
             __el_SECONDPART="${__el_SECONDPART%% *}"
         else
             __el_SECONDPART="${__el_LAST_EXECUTED_COMMAND%% *}"
-        fi 
+        fi
         printf "%s: %s" "$__el_FIRSTPART" "$__el_SECONDPART"
     }
     put_title()
@@ -144,7 +144,7 @@ xterm*|rxvt*)
         __el_LAST_EXECUTED_COMMAND="${BASH_COMMAND}"
         printf "\033]0;%s\007" "$1"
     }
-    
+
     # Show the currently running command in the terminal title:
     # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
     update_tab_command()
