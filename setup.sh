@@ -5,6 +5,11 @@
 case $(uname -s) in
     linux*) OS="linux";;
     darwin*) OS="mac";;
+    mysys*) OS="windows";;
+    solaris*) OS="solaris";;
+    bsd*) OS="bsd";;
+    *) echo "Unknown OS"
+        exit 1;;
 esac
 
 # Linking bashrc/bash_profile
