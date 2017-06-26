@@ -45,8 +45,8 @@ ln -sv ./.vimrc ~/.vimrc
 # Linking VSCode configuration
 # Linux distros
 echo "Linking VSCode configuration."
-if [[ "$OS" == "linux" ]]; then
-    # TODO: Add check for vscode install location on Linux
+if [[ "$OS" == "linux" ]]
+    && [[ -f /usr/bin/code ]]; then
     ln -sv ./vscode-settings.json ~/.config/Code/User/settings.json
 # macOS / OSX
 elif [[ "$OS" == "mac" ]]
