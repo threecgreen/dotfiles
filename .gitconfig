@@ -1,6 +1,54 @@
 [core]
     editor = nvim
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
 [user]
     name = Carter Green
     email = cartergr@usc.edu
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+
+[alias]
+    aa = add --all
+    a = add
+
+    b = branch
+    # List all branches, both remote and local
+    ba = branch -a
+    # Delete branch
+    bd = branch -d
+
+    c = commit
+    # Stage all modified files that have been added to git
+    ca = commit -a
+    # Pass a commit message in the command
+    cm = commit -m
+    cam = commit -am
+    # Ammend commit
+    cd = commit --amend
+    cdra = commit --amend --reset-author
+
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+
+    # --check warns if there are conflict markers or whitespace errors
+    # Diff unstaged files
+    d = diff --check
+    # Diff already staged files
+    dc = diff --cached --check
+
+    f = fetch
+    fu = fetch upstream
+    fo = fetch origin
+
+    g = grep
+
+    l = log --oneline
+    lg = log --oneline --graph --decorate
