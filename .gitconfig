@@ -38,11 +38,10 @@
     cpa = cherry-pick --abort
     cpc = cherry-pick --continue
 
-    # --check warns if there are conflict markers or whitespace errors
     # Diff unstaged files
-    d = diff --check
+    d = diff
     # Diff already staged files
-    dc = diff --cached --check
+    dc = diff --cached
 
     f = fetch
     fu = fetch upstream
@@ -51,4 +50,33 @@
     g = grep
 
     l = log --oneline
+    # Show commit graph
     lg = log --oneline --graph --decorate
+
+    ls = ls-files
+
+    m = merge
+    ma = merge --abort
+    mc = merge --continue
+    ms = merge --skip
+
+    # Checkout a commit
+    ko = checkout
+    # Checkout a branch
+    kob = checkout -b
+
+    ps = push
+    pso = push origin
+
+    pl = pull
+    plo = pull origin
+    plr = pull --rebase
+    plro = pull --rebase origin
+
+    # Unstage a file
+    re = reset
+    reH = reset HEAD
+    reh = reset --hard
+    rehH = reset --hard HEAD
+
+    s = status
