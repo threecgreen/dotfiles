@@ -35,3 +35,6 @@ set list
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
+
+" Use global clipboard
+set clipboard=unnamedplus
