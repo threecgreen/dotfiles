@@ -182,6 +182,17 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E01;32m'
 
+# Only enter password once
+AGENT=`ssh-agent`
+IFS=$';|\n'
+for LINE in $AGENT; do
+  if [[ $LINE == SSH* ]]; then
+    export $LINE
+  fi
+done
+unset IFS
+`ssh-add`
+
 # added by travis gem
 [ -f $HOME.travis/travis.sh ] && source $HOME/.travis/travis.sh
 

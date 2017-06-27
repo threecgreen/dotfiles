@@ -28,6 +28,17 @@ export LESS_TERMCAP_ue=$'\E[0m'
 # added by Anaconda2 4.4.0 installer
 export PATH="$HOME/anaconda2/bin:$PATH"
 
+# Only enter SSH password once per session
+AGENT=`ssh-agent`
+IFS=$';|\n'
+for LINE in $AGENT; do
+  if [[ $LINE == SSH* ]]; then
+    export $LINE
+  fi
+done
+unset IFS
+`ssh-add`
+
 # include local additions/modifications if they exist
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
