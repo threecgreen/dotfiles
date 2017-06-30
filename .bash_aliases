@@ -11,6 +11,9 @@ alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -CF"
 
+# Case insensitive grep by default
+alias grep="grep -i"
+
 # Make parent directories if they don"t exist and verbose output
 alias mkdir="mkdir -pv"
 
