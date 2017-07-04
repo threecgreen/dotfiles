@@ -1,9 +1,6 @@
 # export PS1="\u@\h:\w\$ "
 export PS1='\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[00;34m\]\w\[\033[00m\]\$ '
 
-# Mac specific ls alias
-alias ls='ls -G'
-
 # Print screenfetch information at startup
 if [ -f /usr/bin/neofetch ] || [ -f /usr/local/bin/neofetch ] ; then
     neofetch;

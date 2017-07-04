@@ -1,6 +1,23 @@
 # Bash aliases file
+# Determine OS
+case $(uname -s) in
+    Linux*) OS="linux";;
+    darwin*) OS="mac";;
+    mysys*) OS="windows";;
+    solaris*) OS="solaris";;
+    bsd*) OS="bsd";;
+    *) echo "Unknown OS"
+        exit 1;;
+esac
 
-# enable color support of ls and grep
+# enable color support of ls
+if [ "$OS" = "mac" ]; then
+    # Mac specific ls alias
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
+
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 
