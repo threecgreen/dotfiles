@@ -1,11 +1,8 @@
 # export PS1="\u@\h:\w\$ "
 export PS1='\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[00;34m\]\w\[\033[00m\]\$ '
 
-# ls  aliases
+# Mac specific ls alias
 alias ls='ls -G'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 # Print screenfetch information at startup
 if [ -f /usr/bin/neofetch ] || [ -f /usr/local/bin/neofetch ] ; then
@@ -25,7 +22,6 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 
-# added by Anaconda2 4.4.0 installer
 export PATH="$HOME/anaconda2/bin:$PATH"
 
 # Only enter SSH password once per session
