@@ -33,8 +33,11 @@ else
     echo "Do you wish to install neovim (y/n): "
     select yn in "Yes" "No"; do
         case $yn in
-            # TODO: Install neovim via script
-            [Yy]* ) break;;
+            [Yy]* ) if [ $OS = "mac" ]; then
+                        brew install neovim
+                    # TODO: Install neovim via script on linux distros
+                    else echo "Can't install automatically on this OS."
+                    fi;;
             [Nn]* ) break;;
             * ) echo "Please answer yes or no";;
         esac
@@ -57,8 +60,24 @@ fi
 # Git configuration
 # TODO: Add ability to install git if not already installed.
 echo "Linking git configurations."
-ln -sv ./.git ~/.git
-ln -sv ./.gitconfig ~/.gitconfig
+if [[ -f /usr/local/bin/nvim ]];
+    ln -sv ./.git ~/.git
+    ln -sv ./.gitconfig ~/.gitconfig
+else
+    echo "Git not installed."
+    echo "Do you wish to install git (y/n): "
+    select yn in "Yes" "No"; do
+        case $yn in
+            [Yy]* ) if [ $OS = "mac" ]; then
+                        brew install git
+                    # TODO: Install gti via script on linux distros
+                    else echo "Can't install automatically on this OS."
+                    fi;;
+            [Nn]* ) break;;
+            * ) echo "Please answer yes or no";;
+        esac
+    done
+fi
 
 # Tmux configuration
 # TODO: Add ability to install tmux if not already installed.
