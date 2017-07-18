@@ -2,7 +2,7 @@
 # Determine OS
 case $(uname -s) in
     Linux*) OS="linux";;
-    darwin*) OS="mac";;
+    Darwin*) OS="mac";;
     mysys*) OS="windows";;
     solaris*) OS="solaris";;
     bsd*) OS="bsd";;
