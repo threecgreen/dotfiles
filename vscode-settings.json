@@ -14,5 +14,6 @@
             "before": ["j", "k"],
             "after": ["<Esc>"]
         }
-    ]
+    ],
+    "vim.useSystemClipboard": true
 }

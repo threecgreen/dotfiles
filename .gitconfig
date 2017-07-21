@@ -20,6 +20,7 @@
 [alias]
     aa = add --all
     a = add
+    ac = '!git add && git commit'
 
     b = branch
     # List all branches, both remote and local
