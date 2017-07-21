@@ -7,7 +7,7 @@
     "editor.fontLigatures": true,
     "files.trimTrailingWhitespace": true,
     "editor.renderIndentGuides": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.insertModeKeyBindings": [
         {
