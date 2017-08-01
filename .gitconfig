@@ -27,6 +27,7 @@
     ba = branch -a
     # Delete branch
     bd = branch -d
+    bv = branch -vv
 
     c = commit
     # Stage all modified files that have been added to git
