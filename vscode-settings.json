@@ -15,5 +15,7 @@
             "after": ["<Esc>"]
         }
     ],
-    "vim.useSystemClipboard": true
+    "vim.useSystemClipboard": true,
+    "extensions.ignoreRecommendations": false,
+    "workbench.startupEditor": "newUntitledFile"
 }
