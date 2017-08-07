@@ -1,0 +1,6 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    { "key": "ctrl+d", "command": "editor.action.goToTypeDefinition",
+                        "when": "editorTextFocus"
+    }
+]
