@@ -27,6 +27,7 @@
     ba = branch -a
     # Delete branch
     bd = branch -d
+    # Show detailed branch information
     bv = branch -vv
 
     c = commit
