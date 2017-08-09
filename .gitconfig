@@ -86,3 +86,5 @@
     rehH = reset --hard HEAD
 
     s = status
+    # git status and ignore untracked files
+    suno = status -uno
