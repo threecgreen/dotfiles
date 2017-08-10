@@ -95,14 +95,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# If this is an xterm set more declarative titles 
+# If this is an xterm set more declarative titles
 # "dir: last_cmd" and "actual_cmd" during execution
 # If you want to exclude a cmd from being printed see line 156
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\$(print_title)\a\]$PS1"
     __el_LAST_EXECUTED_COMMAND=""
-    print_title () 
+    print_title ()
     {
         __el_FIRSTPART=""
         __el_SECONDPART=""
@@ -139,7 +139,7 @@ xterm*|rxvt*)
     update_tab_command()
     {
         # catch blacklisted commands and nested escapes
-        case "$BASH_COMMAND" in 
+        case "$BASH_COMMAND" in
             *\033]0*|update_*|echo*|printf*|clear*|cd*)
             __el_LAST_EXECUTED_COMMAND=""
                 ;;
