@@ -7,7 +7,7 @@
     "editor.fontLigatures": true,
     "files.trimTrailingWhitespace": true,
     "editor.renderIndentGuides": true,
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.insertModeKeyBindings": [
         {
@@ -17,5 +17,6 @@
     ],
     "vim.useSystemClipboard": true,
     "extensions.ignoreRecommendations": false,
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.colorTheme": "Solarized Dark"
 }
