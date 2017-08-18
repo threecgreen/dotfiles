@@ -18,5 +18,10 @@
     "vim.useSystemClipboard": true,
     "extensions.ignoreRecommendations": false,
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.colorTheme": "Solarized Dark"
+    "workbench.colorTheme": "Solarized Dark",
+    // whitelist numpy to remove lint errors
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=numpy"
+    ],
+    "editor.renderWhitespace": "none"
 }
