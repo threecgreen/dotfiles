@@ -160,7 +160,7 @@ export PATH="$PATH:$HOME/bin"
 export GOPATH=$HOME/.go
 
 # Print screenfetch information at startup
-if [ -f /usr/bin/neofetch ]; then neofetch; fi
+# if [ -f /usr/bin/neofetch ]; then neofetch; fi
 
 # Colored manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'
