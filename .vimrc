@@ -14,6 +14,7 @@ set expandtab
 
 " Map jk to escape in insert mode
 imap jk <Esc>
+imap JK <Esc>
 
 " Add autocomplete closing parentheses and such
 " Escape using Ctrl-V before typing the mapped character
