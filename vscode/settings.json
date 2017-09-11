@@ -13,6 +13,10 @@
         {
             "before": ["j", "k"],
             "after": ["<Esc>"]
+        },
+        {
+            "before": ["J", "K"],
+            "after": ["<Esc>"]
         }
     ],
     "vim.useSystemClipboard": true,
