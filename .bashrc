@@ -182,10 +182,14 @@ done
 unset IFS
 `ssh-add`
 
-# added by travis gem
+# Travis
 [ -f $HOME.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # include local additions/modifications if they exist
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
+
+export EDITOR=/usr/bin/nvim
+export VISUAL=$EDITOR
+export SSH_KEY_PATH="~/.ssh/rsa_id"
