@@ -1,7 +1,5 @@
 #!/bin/bash
 # wc prints the number of newlines, word count and character count
-# awk -F" " defines whitespace as a field separator
-# print $2 prints the second field: the word count
 FILE="$1"
 # Test filename length
 if [ ${#FILE} == 0 ]; then
@@ -9,6 +7,8 @@ if [ ${#FILE} == 0 ]; then
 elif [ ${FILE: -3} != "tex" ]; then
     echo "Please pass a .tex file"
 else
+    # awk -F" " defines whitespace as a field separator
+    # print $2 prints the second field: the word count
     WC=$(detex "$FILE" | wc | awk -F" " '{print $2}')
     echo "$FILE contains $WC words"
 fi
