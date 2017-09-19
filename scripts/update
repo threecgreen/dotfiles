@@ -1,6 +1,16 @@
 #!/bin/bash
 # Updates system and removes extra
+echo
+echo "Updating package lists:"
 sudo apt update -y
+echo
+echo "Updating any out-of-date packages:"
 sudo apt upgrade -y
+echo
+echo "Removing packages which are no longer needed:"
 sudo apt autoremove -y
+echo
+echo "Removing package cache:"
 sudo apt autoclean -y
+echo
+echo "Update complete"
