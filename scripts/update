@@ -1,6 +1,7 @@
 #!/bin/bash
 # Updates system and removes extra
-echo
+# Sudo echo to get super user priviledges at start of script
+sudo echo
 echo "Updating package lists:"
 sudo apt update -y
 echo
