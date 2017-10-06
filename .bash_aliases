@@ -6,6 +6,7 @@ case $(uname -s) in
     mysys*) OS="windows";;
     solaris*) OS="solaris";;
     bsd*) OS="bsd";;
+    CYGWIN*) OS="cygwin";;
     *) echo "Unknown OS"
         exit 1;;
 esac
