@@ -3,9 +3,8 @@
 case $(uname -s) in
     Linux*) OS="linux";;
     Darwin*) OS="mac";;
-    mysys*) OS="windows";;
-    solaris*) OS="solaris";;
-    bsd*) OS="bsd";;
+    Solaris*) OS="solaris";;
+    BSD*) OS="bsd";;
     CYGWIN*) OS="cygwin";;
     *) echo "Unknown OS"
         exit 1;;
