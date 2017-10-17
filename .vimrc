@@ -16,15 +16,6 @@ set expandtab
 imap jk <Esc>
 imap JK <Esc>
 
-" Add autocomplete closing parentheses and such
-" Escape using Ctrl-V before typing the mapped character
-" ino " ""<left>
-" ino ' ''<left>
-" ino ( ()<left>
-" ino [ []<left>
-" ino { {}<left>
-" ino {<CR> {<CR>}<ESC>0
-
 " Tell which characters to show for expanded \t
 " trailing whitespace and end-of-lines
 if &listchars ==# 'eol:$'
@@ -39,3 +30,10 @@ match ExtraWhitespace /\s\+$\|\t/
 
 " Use global clipboard
 set clipboard=unnamedplus
+
+" Set swapfile directory to /tmp
+set swapfile
+set dir=/tmp
+
+" Always have status bar
+set laststatus=2
