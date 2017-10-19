@@ -37,3 +37,9 @@ set dir=/tmp
 
 " Always have status bar
 set laststatus=2
+
+" Vim Plug
+" Goyo
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/goyo.vim'
+call plug#end()
