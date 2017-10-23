@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Set keyboard map
+setxkbmap -layout us -variant intl
+
 # Wallpaper
 eval `cat ~/.fehbg`
 
