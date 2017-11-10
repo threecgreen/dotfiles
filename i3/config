@@ -170,8 +170,13 @@ for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
 # AUTOSTART
+#assign [class="Spotify"] $workspace1
+#assign [class="Firefox"] $workspace2
+#assign [class="Chrome"] $workspace3
+#exec --no-startup-id spotify
+#exec --no-startup-id firefox
+#exec --no-startup-id i3-msg workspace 2
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper.jpg
-# exec --no-startup-id nm-applet
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always --no-startup-id compton
 
