@@ -31,5 +31,6 @@
     "rust.rustup": {
         "toolchain": "stable-x86_64-unknown-linux-gnu"
     },
-    "rust.mode": "rls"
+    "rust.mode": "rls",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe"
 }
