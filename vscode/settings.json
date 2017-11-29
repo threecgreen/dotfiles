@@ -8,7 +8,6 @@
     "files.trimTrailingWhitespace": true,
     "editor.renderIndentGuides": true,
     "window.zoomLevel": 0,
-    "vim.disableAnnoyingNeovimMessage": true,
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
