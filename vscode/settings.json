@@ -48,5 +48,6 @@
         "suppressNoRepositoryWarning": false,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
-    }
+    },
+    "cmake-tools-helper.cmake_download_path": "/home/carter/.vscode/extensions/maddouri.cmake-tools-helper-0.1.1/cmake_download"
 }
