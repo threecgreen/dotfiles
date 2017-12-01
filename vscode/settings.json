@@ -7,6 +7,8 @@
     "editor.fontLigatures": true,
     "files.trimTrailingWhitespace": true,
     "editor.renderIndentGuides": true,
+    "editor.scrollBeyondLastLine": false,
+    "editor.wrappingIndent": "indent",
     "window.zoomLevel": 0,
     "vim.insertModeKeyBindings": [
         {
@@ -50,3 +52,4 @@
     },
     "cmake-tools-helper.cmake_download_path": "/home/carter/.vscode/extensions/maddouri.cmake-tools-helper-0.1.1/cmake_download"
 }
+
