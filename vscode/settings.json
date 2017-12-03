@@ -50,6 +50,20 @@
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": true
     },
-    "cmake-tools-helper.cmake_download_path": "/home/carter/.vscode/extensions/maddouri.cmake-tools-helper-0.1.1/cmake_download"
+    "latex-workshop.latex.toolchain": [
+        {
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                // Necessary for minted, enables the running
+                // of external commands
+                "-shell-escape",
+                "%DOC%"
+            ]
+        }
+    ]
 }
 
