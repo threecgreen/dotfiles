@@ -47,7 +47,7 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
-        "suppressUpdateNotice": false,
+        "suppressUpdateNotice": true,
         "suppressWelcomeNotice": true
     },
     "latex-workshop.latex.toolchain": [
