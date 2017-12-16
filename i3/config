@@ -177,6 +177,7 @@ hide_edge_borders both
 #exec --no-startup-id firefox
 #exec --no-startup-id i3-msg workspace 2
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper.jpg
+exec_always --no-startup-id redshift
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always --no-startup-id compton
 
