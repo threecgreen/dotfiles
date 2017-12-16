@@ -49,7 +49,7 @@ font-2 = @FONT_SIJI@;1
 
 modules-left = i3 memory cpu
 modules-center = spotify
-modules-right = volume battery brightness keyboard date
+modules-right = volume battery brightness keyboard date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -268,12 +268,12 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = "Vol "
+label-volume = Vol
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix =
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = ""
+label-muted = sound muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -285,11 +285,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 0
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 0
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
@@ -304,11 +304,11 @@ format-charging-underline = #ffb52a
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix =" "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
+ramp-capacity-0 =""
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
@@ -343,34 +343,34 @@ type = custom/menu
 
 format-spacing = 1
 
-label-open = 
+label-open =""
 label-open-foreground = ${colors.secondary}
-label-close = cancel
+label-close =""
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
+menu-0-0 =""
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 =""
 menu-0-1-exec = menu-open-2
-menu-0-2 = suspend
+menu-0-2 =""
 menu-0-2-exec = menu-open-3
 
-menu-1-0 = cancel
+menu-1-0 =""
 menu-1-0-exec = menu-open-0
-menu-1-1 = back
+menu-1-1 =""
 menu-1-1-exec = systemctl reboot
 
-menu-2-0 = power off
+menu-2-0 =""
 menu-2-0-exec = systemctl poweroff
-menu-2-1 = back
+menu-2-1 =""
 menu-2-1-exec = menu-open-0
 
-menu-3-0 = suspend
-menu-3-0-exec = systemctl suspend
-;menu-3-1-exec = back
-;menu-3-1-exec = menu-open-0
+menu-3-0 =""
+menu-3-0-exec = menu-open-0
+menu-3-1 =""
+menu-3-1-exec = systemctl suspend
 
 [module/spotify]
 type = custom/script
