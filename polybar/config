@@ -49,7 +49,7 @@ font-2 = @FONT_SIJI@;1
 
 modules-left = i3 memory cpu
 modules-center = spotify
-modules-right = volume battery brightness keyboard date powermenu
+modules-right = redshift pavolume battery brightness keyboard date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -383,6 +383,31 @@ exec = $HOME/.config/polybar/brightness.sh
 interval = 2
 click-left = $HOME/.config/polybar/change-brightness.sh raise
 click-right = $HOME/.config/polybar/change-brightness.sh lower
+
+[module/pavolume]
+; from Wiki
+type = custom/script
+interval = 2
+label = %output%
+exec = $HOME/.config/polybar/pavolume.sh
+exec-if = pacmd list-sinks | grep -q available
+click-right = exec pavucontrol
+click-left = $HOME/.config/polybar/pavolume.sh -togmute
+scroll-up = $HOME/.config/polybar/pavolume.sh
+scroll-down = $HOME/.config/polybar/pavolume.sh
+
+[module/redshift]
+; from Wiki
+type = custom/script
+interval = 5
+exec = ~/.config/polybar/redshift.sh
+
+[module/weathericons]
+; from Wiki
+type = custom/script
+interval = 15
+format = <label>
+exec = ~/.config/polybar/weathericons.py
 
 [settings]
 screenchange-reload = true
