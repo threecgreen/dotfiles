@@ -195,3 +195,9 @@ bindsym XF86AudioPlay exec playerctl play-pause
 # bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Cycle through workspaces
+bindsym $mod+Control+Right workspace next
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
