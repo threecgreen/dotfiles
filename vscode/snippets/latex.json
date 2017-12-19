@@ -1,0 +1,27 @@
+{
+	// Quicker \item
+	"Item": {
+		"prefix": "item",
+		"body": "\\item $1",
+		"description": "Enumeration, description and itemize item"
+	},
+	// Snippets for custom cookbook class
+	"Ingredients List": {
+		"prefix": "ingredient",
+		"body": [
+			"\\begin{ingredients}",
+			"\t\\item $1",
+			"\\end{ingredients}"
+		],
+		"description": "List of ingredients for a recipe"
+	},
+	"Recipe Directions": {
+		"prefix": "directions",
+		"body": [
+			"\\begin{directions}",
+			"\t\\item $1",
+			"\\end{directions}"
+		],
+		"description": "List of directions for recipe"
+	}
+}
