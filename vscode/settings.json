@@ -25,7 +25,9 @@
         "<C-b>": false,
         "<C-f>": false,
         "<C-a>": false,
-        "<C-j>": false
+        "<C-j>": false,
+        "<C-n>": false,
+        "<C-N>": false
     },
     "extensions.ignoreRecommendations": false,
     "workbench.startupEditor": "newUntitledFile",
