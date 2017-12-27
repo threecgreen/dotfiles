@@ -8,6 +8,7 @@
     "files.trimTrailingWhitespace": true,
     "editor.renderIndentGuides": true,
     "editor.scrollBeyondLastLine": false,
+    "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
     "window.zoomLevel": 0,
     "vim.insertModeKeyBindings": [
@@ -66,6 +67,29 @@
                 "%DOC%"
             ]
         }
+    ],
+    "latex-workshop.latex.clean.fileTypes":[
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        // cprotect package
+        "*.cpt"
     ]
 }
 
