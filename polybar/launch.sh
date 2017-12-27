@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # Terminate current polybars
 killall -q polybar
 

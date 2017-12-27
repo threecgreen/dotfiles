@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # Capture both stderr and stdout
 status=$(playerctl status 2>&1)
 if [[ "$status" == "Playing" ]]; then

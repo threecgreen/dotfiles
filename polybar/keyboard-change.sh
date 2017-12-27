@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 current=`$HOME/.config/polybar/keyboard-layout.sh`
 
 case $current in

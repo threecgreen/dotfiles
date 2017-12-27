@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # Change system brightness using light
 case $1 in
     "raise")

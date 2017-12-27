@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 # Retrieve current keyboard layout
 layout=`setxkbmap -query | grep layout | cut -d ' ' -f 6`
 variant=`setxkbmap -query | grep variant | cut -d ' ' -f 5`
