@@ -11,6 +11,16 @@
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
     "window.zoomLevel": 0,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.idea": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
