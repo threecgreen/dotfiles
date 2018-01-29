@@ -1,17 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Updates system and removes extra
 # Sudo echo to get super user priviledges at start of script
+set -e
 sudo echo
-echo "Updating package lists:"
+echo "Updating package lists..."
 sudo apt update -y
 echo
-echo "Updating any out-of-date packages:"
+echo "Updating any out-of-date packages..."
 sudo apt upgrade -y
 echo
-echo "Removing packages which are no longer needed:"
+echo "Removing packages which are no longer needed..."
 sudo apt autoremove -y
 echo
-echo "Removing package cache:"
+echo "Removing package cache..."
 sudo apt autoclean -y
 echo
-echo "Update complete"
+echo "Update complete."
