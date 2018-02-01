@@ -1,3 +1,4 @@
 *.tmux/*
 .DS_Store
 vscode/workspaceStorage/*
+.vscode
