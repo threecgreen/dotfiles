@@ -100,6 +100,15 @@
         "*.fdb_latexmk",
         // cprotect package
         "*.cpt"
+    ],
+    "todohighlight.include": [
+        "**/*.py",
+        "**/*.tex",
+        "**/*.cpp",
+        "**/*.hpp",
+        "**/*.c",
+        "**/*.h",
+        "**/*.sh"
     ]
 }
 
