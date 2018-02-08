@@ -98,6 +98,10 @@
         "*.fls",
         "*.log",
         "*.fdb_latexmk",
+        "*.synctex.gz",
+        "*.run.xml",
+        "*.tex.bak",
+        "*.bcf",
         // cprotect package
         "*.cpt"
     ],
