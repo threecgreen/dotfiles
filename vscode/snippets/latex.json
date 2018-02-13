@@ -23,5 +23,12 @@
 			"\\end{directions}"
 		],
 		"description": "List of directions for recipe"
+	},
+	"Date": {
+		"prefix": "date",
+		"body": [
+			"$1\\textsuperscript{$2} of $3, $CURRENT_YEAR"
+		],
+		"description": "Enter current date"
 	}
 }

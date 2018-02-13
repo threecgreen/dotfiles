@@ -113,6 +113,12 @@
         "**/*.c",
         "**/*.h",
         "**/*.sh"
+    ],
+    "cSpell.ignoreRegExpList": [
+        // Match abbreviations
+        "\b(?:[A-Z]){2,}",
+        // Match email
+        "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
     ]
 }
 
