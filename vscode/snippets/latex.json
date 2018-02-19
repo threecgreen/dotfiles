@@ -30,5 +30,12 @@
 			"$1\\textsuperscript{$2} of $3, $CURRENT_YEAR"
 		],
 		"description": "Enter current date"
+	},
+	"Cookbook Fraction": {
+		"prefix": "cgfrac",
+		"body": [
+			"\\cgfrac[$1]{$2}{$3}"
+		],
+		"description": "Custom fraction typesetting for cookbooks"
 	}
 }
