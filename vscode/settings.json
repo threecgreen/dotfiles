@@ -63,6 +63,7 @@
         "suppressUpdateNotice": true,
         "suppressWelcomeNotice": true
     },
+    "latex-workshop.debug.showUpdateMessage": false,
     "latex-workshop.latex.toolchain": [
         {
             "command": "latexmk",
