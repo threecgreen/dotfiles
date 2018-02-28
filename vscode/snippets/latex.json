@@ -37,5 +37,14 @@
 			"\\cgfrac[$1]{$2}{$3}"
 		],
 		"description": "Custom fraction typesetting for cookbooks"
-	}
+	},
+    "minted-environment": {
+        "prefix": "minted",
+        "body": [
+            "\\begin{minted}{$1}",
+            "\t$2",
+            "\\end{minted}",
+        ],
+        "description": "Minted code highlighting environment"
+    }
 }
