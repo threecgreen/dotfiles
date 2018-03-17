@@ -120,6 +120,7 @@
         "\b(?:[A-Z]){2,}",
         // Match email
         "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
-    ]
+    ],
+    "gitlens.keymap": "alternate"
 }
 
