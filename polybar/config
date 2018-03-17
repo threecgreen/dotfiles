@@ -343,7 +343,7 @@ animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
+thermal-zone = 2
 warn-temperature = 60
 interval = 2
 
@@ -351,16 +351,17 @@ format = <label>
 format-prefix = "Temp "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.orange}
-format-warn = <ramp> <label-warn>
+format-warn = Temp <label-warn>
+format-warn-foreground = ${self.label-warn-foreground}
 format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.red}
+label-warn-foreground = ${colors.orange}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 =
+ramp-1 =
+ramp-2 =
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
