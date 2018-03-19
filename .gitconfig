@@ -20,6 +20,7 @@
 [alias]
     aa = add --all
     a = add
+    ap = add --patch
     ac = '!git add && git commit'
 
     b = branch
