@@ -64,21 +64,6 @@
         "suppressWelcomeNotice": true
     },
     "latex-workshop.debug.showUpdateMessage": false,
-    "latex-workshop.latex.toolchain": [
-        {
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                // Necessary for minted, enables the running
-                // of external commands
-                "-shell-escape",
-                "%DOC%"
-            ]
-        }
-    ],
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
@@ -121,6 +106,28 @@
         // Match email
         "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
     ],
-    "gitlens.keymap": "alternate"
+    "gitlens.keymap": "alternate",
+    "latex-workshop.latex.tools": [
+        {
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-shell-escape",
+                "%DOC%"
+            ],
+            "name": "Latexmk"
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "toolchain",
+            "tools": [
+                "Latexmk"
+            ]
+        }
+    ]
 }
 
