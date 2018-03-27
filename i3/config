@@ -77,9 +77,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -208,3 +208,10 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+backslash exec ~/.config/i3/lock.sh
 # Suspend and lock automatically after 15 minutes of inactivity
 exec_always --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/suspend.sh" -detectsleep
+
+# Rofi window switcher
+bindsym $mod+w exec rofi -show window
+
+# Change keyboard config with both shift keys
+bindcode Shift+50 exec ~/.config/polybar/keyboard-change.sh
+bindcode Shift+62 exec ~/.config/polybar/keyboard-change.sh
