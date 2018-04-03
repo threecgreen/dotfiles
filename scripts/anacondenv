@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+# Shortcut for activating the base anaconda environment
+# Execute $ . anacondenv
+source /opt/anaconda/bin/activate
