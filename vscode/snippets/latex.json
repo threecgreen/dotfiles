@@ -43,7 +43,7 @@
         "body": [
             "\\begin{minted}{$1}",
             "\t$2",
-            "\\end{minted}",
+            "\\end{minted}"
         ],
         "description": "Minted code highlighting environment"
     }
