@@ -9,7 +9,7 @@ lsblk
 # 1. 100MB EFI partition # Hex code ef00
 # 2. 250MB /boot partition # Hex code 8300
 # 3. 100% remaining to be encrypted # Hex code 8300
-cfdisk /dev/sda
+cgdisk /dev/sda
 
 # Format EFI and /boot
 mkfs.vfat -F32 /dev/sdX1
@@ -17,6 +17,7 @@ mkfs.ext2 /dev/sdX2
 
 # Setup encryption
 cryptsetup -c aes-xts-plain64 -y --use-random luksFormat /dev/sdX3
+# Type YES
 cryptsetup luksOpen /dev/sdX3 luks
 
 # Create encrypted partitions
@@ -25,7 +26,7 @@ cryptsetup luksOpen /dev/sdX3 luks
 pvcreate /dev/mapper/luks
 vgcreate vg0 /dev/mapper/luks
 # Root
-lvcreate --size 40GB vg0 --name root
+lvcreate --size 50GB vg0 --name root
 # Home with remaining space
 lvcreate -l +100%FREE vg0 --name home
 
@@ -68,9 +69,10 @@ hwclock --systohc --utc
 echo SOMEHOSTNAME > /etc/hostname
 
 # Set locale
-echo LANG=en_US.UTF-8 >> /etc/locale.conf
-echo LANGUAGE=en_US >> /etc/locale.conf
-echo LC_ALL=C >> /etc/locale.conf
+vim /etc/locale.gen
+# Uncomment en_US.UTF-8
+vim /etc/locale.conf
+# LANG=en_US.UTF-8
 
 # Set root password
 passwd
@@ -80,13 +82,15 @@ useradd -m -g users -G wheel -s /bin/zsh MYUSERNAME
 # Set user password
 passwd MYUSERNAME
 
+# Enable wheel members to use sudo
+visudo
+
 # Configure default wifi network
-netctl enable name-of-profile
+# netctl enable name-of-profile
 
 # Configure mkinitcpio with modules needed for the initrd image
 vim /etc/mkinitcpio.conf
-# Add 'ext4' to MODULES
-# Add 'encrypt' and 'lvm2' to HOOKS before filesystems
+# HOOKS="base udev autodetect modconf block keymap encrypt lvm2 resume filesystems keyboard fsck"
 # Generate initrd image
 mkinitcpio -p linux
 
@@ -108,6 +112,10 @@ swapoff -a
 
 # Reboot into the new system, don't forget to remove the cd/usb
 reboot
+
+# Install NVIDIA graphics driver
+# Determine graphics card
+lspci -k | grep -A 2 -E "(VGA|3D)"
 
 # Install X server, window manager, download dotfiles
 pacman -S xorg xorg-server
