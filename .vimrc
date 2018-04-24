@@ -38,8 +38,20 @@ set dir=/tmp
 " Always have status bar
 set laststatus=2
 
+" Quick access to vim undo tree
+nnoremap <F5> :UndotreeToggle<cr>
+" Persistent undo
+if has("persistent_undo")
+    set undodir=/tmp/undodir/
+    set undofile
+endif
+
 " Vim Plug
-" Goyo
 call plug#begin('~/.local/share/nvim/plugged')
+" Minimalist mode
 Plug 'junegunn/goyo.vim'
+" Better quoting and xml tags
+Plug 'tpope/vim-surround'
+" Visualize undo tree
+Plug 'mbbill/undotree'
 call plug#end()

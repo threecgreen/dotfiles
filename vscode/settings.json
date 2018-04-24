@@ -40,6 +40,7 @@
         "<C-n>": false,
         "<C-N>": false
     },
+    "vim.enableNeovim": true,
     "extensions.ignoreRecommendations": false,
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Solarized Dark",
@@ -65,7 +66,6 @@
         "suppressUpdateNotice": true,
         "suppressWelcomeNotice": true
     },
-    "latex-workshop.debug.showUpdateMessage": false,
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
