@@ -3,6 +3,28 @@
 # Sudo echo to get super user priviledges at start of script
 set -e
 sudo echo
+#distro="$(cat /etc/issue)"
+#echo "$distro"
+#case "$distro" in
+#    [*"Ubuntu"*] )
+#        echo "Updating package lists..."
+#        sudo apt update -y
+#        echo
+#        echo "Updating any out-of-date packages..."
+#        sudo apt upgrade -y
+#        echo
+#        echo "Removing packages which are no longer needed..."
+#        sudo apt autoremove -y
+#        echo
+#        echo "Removing package cache..."
+#        sudo apt autoclean -y
+#        echo
+#        echo "Update complete." ;;
+#    [*"Arch"*] )
+#        aurman -Syu --devel --noconfirm --noedit ;;
+#    * )
+#        echo "Unknown distro"
+#
 echo "Updating package lists..."
 sudo apt update -y
 echo
