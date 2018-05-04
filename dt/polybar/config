@@ -28,8 +28,8 @@ blue = #268bd2
 cyan = #2aa198
 green = #859900
 
-[bar/top]
-;monitor = ${env:MONITOR:eDP-1}
+[bar/right]
+monitor = HDMI-0
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -60,12 +60,12 @@ padding = 2
 module-margin = 1
 
 font-0 = Futura Std:pixelsize=12;1
-font-1 = fontawesome:size=10:;0
-font-2 = fontawesome:size=8:;0
+font-1 = "Font Awesome 5 Free:size=10:;0"
+font-2 = "Font Awesome 5 Free:size=8:;0"
 
 modules-left = i3 wlan memory cpu temperature
 modules-center = spotify
-modules-right = battery brightness redshift pavolume keyboard date powermenu
+modules-right = redshift keyboard date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -84,8 +84,67 @@ wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+;cursor-click = pointer
+;cursor-scroll = ns-resize
+
+[bar/left]
+monitor = DVI-D-0
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; Opacity value between used in fade in/out
+dim-value = 0.95
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+border-color = #00000000
+
+;padding-left = 2
+;padding-right = 2
+; number of spaces to add at beginning/end of the bar
+padding = 2
+
+;module-margin-left = 1
+;module-margin-right = 2
+; number of spaces to add before/after each module
+module-margin = 1
+
+font-0 = Futura Std:pixelsize=12;1
+font-1 = "Font Awesome 5 Free:size=10:;0"
+font-2 = "Font Awesome 5 Free:size=8:;0"
+
+modules-left = i3
+modules-center = spotify
+modules-right = date powermenu
+
+; system tray disable
+;tray-position = center
+;tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = false
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;cursor-click = pointer
+;cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
@@ -172,16 +231,21 @@ label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Workspace icons
-ws-icon-0 = "1;"
-ws-icon-1 = "2;"
-ws-icon-2 = "3;"
-ws-icon-3 = "4;"
-ws-icon-4 = "5;"
+;ws-icon-0 = "1;"
+;ws-icon-1 = "2;"
+;ws-icon-2 = "3;"
+;ws-icon-3 = "4;"
+;ws-icon-4 = "5;"
+ws-icon-0 = "1;1"
+ws-icon-1 = "2;2"
+ws-icon-2 = "3;3"
+ws-icon-3 = "4;4"
+ws-icon-4 = "5;5"
 ws-icon-5 = "6;6"
 ws-icon-6 = "7;7"
 ws-icon-7 = "8;8"
 ws-icon-8 = "9;9"
-ws-icon-9 = "10;!"
+ws-icon-9 = "10;10"
 
 [module/mpd]
 type = internal/mpd
@@ -236,7 +300,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp3s0
 interval = 3
 
 format-connected = <ramp-signal> <label-connected>
@@ -249,6 +313,11 @@ format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
+; ramp-signal-0 = "----"
+; ramp-signal-1 = "+---"
+; ramp-signal-2 = "++--"
+; ramp-signal-3 = "+++-"
+; ramp-signal-4 = "++++"
 ramp-signal-0 = ""
 ramp-signal-1 = ""
 ramp-signal-2 = ""
@@ -352,7 +421,7 @@ animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 2
+thermal-zone = 1
 warn-temperature = 60
 interval = 2
 
