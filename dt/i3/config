@@ -180,7 +180,7 @@ hide_edge_borders both
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper.jpg
 exec_always --no-startup-id redshift
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
-exec_always --no-startup-id compton
+exec_always --no-startup-id $HOME/.config/i3/compton.sh &
 exec gnome-settings-daemon
 
 # Pulse Audio controls
