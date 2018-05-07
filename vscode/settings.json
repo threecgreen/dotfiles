@@ -91,6 +91,8 @@
         "*.run.xml",
         "*.tex.bak",
         "*.bcf",
+        "*.pyg",
+        "*.synctex.gz(busy)",
         // cprotect package
         "*.cpt"
     ],
