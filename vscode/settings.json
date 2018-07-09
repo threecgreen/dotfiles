@@ -136,6 +136,7 @@
     ],
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.message.update.show": false,
-    "gitlens.historyExplorer.enabled": false
+    "gitlens.historyExplorer.enabled": false,
+    "git.autofetch": true
 }
 
