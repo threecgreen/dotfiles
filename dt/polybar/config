@@ -65,7 +65,7 @@ font-2 = "Font Awesome 5 Free:size=8:;0"
 
 modules-left = i3 wlan memory cpu temperature
 modules-center = spotify
-modules-right = redshift keyboard date powermenu
+modules-right = redshift keyboard volume date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -88,7 +88,7 @@ scroll-down = i3wm-wsprev
 ;cursor-scroll = ns-resize
 
 [bar/left]
-monitor = DVI-D-0
+monitor = DP-0
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -122,7 +122,7 @@ font-0 = Futura Std:pixelsize=12;1
 font-1 = "Font Awesome 5 Free:size=10:;0"
 font-2 = "Font Awesome 5 Free:size=8:;0"
 
-modules-left = i3
+modules-left = i3 updates updates-aur
 modules-center = spotify
 modules-right = date powermenu
 
@@ -360,33 +360,19 @@ format-underline = ${colors.blue}
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-format-underline = ${colors.orange}
-;label-volume = Vol
-;label-volume-foreground = ${root.foreground}
+format-volume = <ramp-volume><label-volume>
+format-volume-underline = ${colors.magenta}
 
-format-muted-prefix =
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = ""
+label-muted-foreground = ${colors.foreground-alt}
+format-muted-underline = ${colors.magenta}
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 0
-bar-volume-fill = ─
-bar-volume-fill-font = 0
-bar-volume-empty = ─
-bar-volume-empty-font = 0
-bar-volume-empty-foreground = ${colors.foreground-alt}
+; Ramp volume
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
 
 [module/battery]
 type = internal/battery
@@ -433,8 +419,8 @@ format-warn = Temp <label-warn>
 format-warn-foreground = ${self.label-warn-foreground}
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.orange}
 
 ramp-0 =
@@ -518,6 +504,24 @@ type = custom/script
 interval = 15
 format = <label>
 exec = ~/.config/polybar/weathericons.py
+
+[module/sys-updates]
+; Available system package upgrades
+type = custom/script
+interval = 600
+exec = ~/.config/polybar/updates.sh
+format-prefix = "SYS "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.blue}
+
+[module/aur-updates]
+; Available AUR package upgrades
+type = custom/script
+interval = 600
+exec = ~/.config/polybar/updates.sh aur
+format-prefix = "AUR "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.green}
 
 [settings]
 screenchange-reload = true
