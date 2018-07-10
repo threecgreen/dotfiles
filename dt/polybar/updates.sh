@@ -1,1 +1,1 @@
-./lt/polybar/updates.sh
+/home/carter/git/dotfiles/lt/polybar/updates.sh

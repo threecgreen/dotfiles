@@ -122,9 +122,9 @@ font-0 = Futura Std:pixelsize=12;1
 font-1 = "Font Awesome 5 Free:size=10:;0"
 font-2 = "Font Awesome 5 Free:size=8:;0"
 
-modules-left = i3 updates updates-aur
+modules-left = i3 sys-updates aur-updates
 modules-center = spotify
-modules-right = date powermenu
+modules-right = expressvpn date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -522,6 +522,15 @@ exec = ~/.config/polybar/updates.sh aur
 format-prefix = "AUR "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.green}
+
+[module/expressvpn]
+; VPN status
+type = custom/script
+interval = 10
+exec = ~/.config/polybar/expressvpn.sh
+format-prefix = "VPN "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.red}
 
 [settings]
 screenchange-reload = true
