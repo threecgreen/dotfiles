@@ -8,6 +8,5 @@ elif [[ "$fw" == "Connected" ]]; then
     # Is connected, print server location
     echo $(expressvpn status | head -n 1 | cut -d' ' -f 3-)
 else
-    echo "'$fw'"
     echo "Not connected"
 fi
