@@ -453,7 +453,7 @@ exec = ~/.config/polybar/weathericons.py
 [module/sys-updates]
 ; Available system package upgrades
 type = custom/script
-interval = 600
+interval = 300
 exec = ~/.config/polybar/updates.sh
 format-prefix = "SYS "
 format-prefix-foreground = ${colors.foreground-alt}
@@ -462,7 +462,7 @@ format-underline = ${colors.blue}
 [module/aur-updates]
 ; Available AUR package upgrades
 type = custom/script
-interval = 600
+interval = 300
 exec = ~/.config/polybar/updates.sh aur
 format-prefix = "AUR "
 format-prefix-foreground = ${colors.foreground-alt}
