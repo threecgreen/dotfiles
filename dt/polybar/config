@@ -526,7 +526,7 @@ format-underline = ${colors.green}
 [module/expressvpn]
 ; VPN status
 type = custom/script
-interval = 10
+interval = 5
 exec = ~/.config/polybar/expressvpn.sh
 format-prefix = "VPN "
 format-prefix-foreground = ${colors.foreground-alt}
