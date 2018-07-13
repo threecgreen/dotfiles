@@ -171,22 +171,19 @@ for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
 # AUTOSTART
-#assign [class="Spotify"] $workspace1
-#assign [class="Firefox"] $workspace2
-#assign [class="Chrome"] $workspace3
-#exec --no-startup-id spotify
-#exec --no-startup-id firefox
-#exec --no-startup-id i3-msg workspace 2
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpaper.jpg
-exec_always --no-startup-id redshift
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always --no-startup-id compton
+exec --no-startup-id redshift
 exec gnome-settings-daemon
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# increase sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+# decrease sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
@@ -215,3 +212,17 @@ bindsym $mod+w exec bash -c "rofi -show window"
 # Change keyboard config with both shift keys
 bindcode Shift+50 exec ~/.config/polybar/keyboard-change.sh
 bindcode Shift+62 exec ~/.config/polybar/keyboard-change.sh
+
+# Quick launch mode
+set $quick_launcher_mode Quick Launcher
+bindsym $mod+o mode "$quick_launcher_mode"
+
+mode "$quick_launcher_mode" {
+    bindsym f exec firefox-developer-edition
+    bindsym g exec google-chrome-stable
+    bindsym t exec Thunar
+    bindsym c exec code
+
+    bindsym Escape mode "default"
+    bindsym Escape mode "default"
+}
