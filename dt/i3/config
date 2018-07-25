@@ -221,6 +221,7 @@ mode "$quick_launcher_mode" {
     bindsym g exec google-chrome-stable
     bindsym t exec Thunar
     bindsym c exec code
+    bindsym m exec pavucontrol
 
     bindsym Escape mode "default"
     bindsym Escape mode "default"
