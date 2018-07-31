@@ -10,6 +10,7 @@
     "editor.scrollBeyondLastLine": false,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
+    "git.autofetch": true,
     "window.zoomLevel": 0,
     "files.exclude": {
         "**/.git": true,
@@ -136,7 +137,6 @@
     ],
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.message.update.show": false,
-    "gitlens.historyExplorer.enabled": false,
-    "git.autofetch": true
+    "gitlens.historyExplorer.enabled": true,
 }
 
