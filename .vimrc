@@ -54,4 +54,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 " Visualize undo tree
 Plug 'mbbill/undotree'
+" Lisp inferred parens
+" Requires rust
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 call plug#end()
