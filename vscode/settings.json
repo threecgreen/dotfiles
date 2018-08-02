@@ -5,13 +5,15 @@
     "editor.fontFamily": "Hasklig",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
-    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true,
+    "editor.rulers": [80],
     "editor.scrollBeyondLastLine": false,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
-    "git.autofetch": true,
-    "window.zoomLevel": 0,
+    // Don't show useless openEditors window
+    "explorer.openEditors.visible": 0,
+    "extensions.showRecommendationsOnlyOnDemand": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -22,52 +24,28 @@
         "**/__pycache__": true,
         "**/*.pyc": true
     },
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        },
-        {
-            "before": ["J", "K"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "vim.useSystemClipboard": true,
-    "vim.handleKeys": {
-        "<C-b>": false,
-        "<C-f>": false,
-        "<C-a>": false,
-        "<C-j>": false,
-        "<C-n>": false,
-        "<C-N>": false
-    },
-    "vim.enableNeovim": true,
-    "vim.neovimPath": "/usr/bin/nvim",
-    "extensions.ignoreRecommendations": false,
+    "files.hotExit": "onExitAndWindowClose",
+    "files.trimTrailingWhitespace": true,
+    "git.autofetch": true,
+    "window.zoomLevel": 0,
+    "editor.renderWhitespace": "none",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Solarized Dark",
-    // whitelist numpy to remove lint errors
-    "python.linting.pylintArgs": [
-        "--extension-pkg-whitelist=numpy"
+
+    // Language specific settings
+    "[html]": {
+        "editor.tabSize": 2
+    },
+
+    // Extension settings
+    "cSpell.ignoreRegExpList": [
+        // Match abbreviations
+        "\b(?:[A-Z]){2,}",
+        // Match email
+        "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
     ],
-    "editor.renderWhitespace": "none",
-    "rust.rustup": {
-        "toolchain": "stable-x86_64-unknown-linux-gnu"
-    },
-    "rust.mode": "rls",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true,
-        "suppressUpdateNotice": true,
-        "suppressWelcomeNotice": true
-    },
+    "cSpell.diagnosticLevel": "Hint",
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
@@ -97,22 +75,6 @@
         // cprotect package
         "*.cpt"
     ],
-    "todohighlight.include": [
-        "**/*.py",
-        "**/*.tex",
-        "**/*.cpp",
-        "**/*.hpp",
-        "**/*.c",
-        "**/*.h",
-        "**/*.sh"
-    ],
-    "cSpell.ignoreRegExpList": [
-        // Match abbreviations
-        "\b(?:[A-Z]){2,}",
-        // Match email
-        "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
-    ],
-    "gitlens.keymap": "alternate",
     "latex-workshop.latex.tools": [
         {
             "command": "latexmk",
@@ -137,6 +99,43 @@
     ],
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.message.update.show": false,
-    "gitlens.historyExplorer.enabled": true,
+    // whitelist numpy to remove lint errors
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=numpy"
+    ],
+    "rust.rustup": {
+        "toolchain": "stable-x86_64-unknown-linux-gnu"
+    },
+    "rust.mode": "rls",
+    "todohighlight.include": [
+        "**/*.py",
+        "**/*.tex",
+        "**/*.cpp",
+        "**/*.hpp",
+        "**/*.c",
+        "**/*.h",
+        "**/*.sh"
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["J", "K"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-f>": false,
+        "<C-a>": false,
+        "<C-j>": false,
+        "<C-n>": false,
+        "<C-N>": false
+    },
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/bin/nvim",
 }
 
