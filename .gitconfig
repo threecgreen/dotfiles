@@ -46,6 +46,7 @@
     cpc = cherry-pick --continue
     # Clone
     cl = clone
+    clr = clone --recursive
 
     # Diff unstaged files
     d = diff
