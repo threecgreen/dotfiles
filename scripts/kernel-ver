@@ -1,0 +1,18 @@
+#!/bin/env bash
+# Indicates the running kernel version and the installed kernel version, ie
+# the kernel version that will be running following the next reboot. Ony works
+# on Arch Linux.
+
+red_text()
+# Prints string in red bold text.
+#
+# Accepts one argument:
+#   string
+{
+    echo -en "\033[1;31m$1\033[0m"
+}
+red_text "Running: "
+pacman -Q | grep "^linux " | cut -d ' ' -f 2
+red_text "Installed: "
+uname -r | cut -d '-' -f 1-3
+
