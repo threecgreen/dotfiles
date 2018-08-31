@@ -13,7 +13,7 @@ synclient TapButton1=1
 synclient TapButton2=3
 
 # Wallpaper
-eval `cat ~/.fehbg`
+eval `~/.fehbg`
 
 # Start i3-gaps
 exec i3
