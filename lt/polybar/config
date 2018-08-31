@@ -65,7 +65,7 @@ font-2 = fontawesome:size=8:;0
 
 modules-left = i3 wlan memory cpu temperature sys-updates aur-updates
 modules-center = spotify
-modules-right = battery brightness redshift pavolume keyboard date powermenu
+modules-right = expressvpn battery brightness redshift pavolume keyboard date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -478,5 +478,14 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 0
+
+[module/expressvpn]
+; VPN status
+type = custom/script
+interval = 5
+exec = ~/.config/polybar/expressvpn.sh
+format-prefix = "VPN "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.red}
 
 ; vim:ft=dosini
