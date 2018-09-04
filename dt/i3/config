@@ -238,7 +238,7 @@ client.unfocused        #002b36 #073642 #839496 #073642
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
 # Window title padding
-for_window [class=".*"] title_format "  %title"
+for_window [class=".*"] title_format " %title"
 
 # Assign workspaces to a specific monitor
 workspace 1 output DP-0
