@@ -35,6 +35,7 @@
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
     "window.zoomLevel": 0,
+    "window.titleBarStyle": "custom",
     "editor.renderWhitespace": "none",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "workbench.startupEditor": "newUntitledFile",
