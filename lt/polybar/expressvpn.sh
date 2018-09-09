@@ -1,0 +1,1 @@
+/home/carter/git/dotfiles/dt/polybar/expressvpn.sh
