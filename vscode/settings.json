@@ -6,6 +6,7 @@
     "editor.fontFamily": "Hasklig",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
+    "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true,
     "editor.rulers": [80],
@@ -38,6 +39,7 @@
     "window.titleBarStyle": "custom",
     "editor.renderWhitespace": "none",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+    "workbench.settings.editor": "json",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Solarized Dark",
 
