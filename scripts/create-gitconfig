@@ -1,0 +1,36 @@
+#! /usr/bin/bash
+# Sets up ~/.gitconfig file, ~/.gitmessage git commit template and .ssh key if
+# it doesn't already exist.
+
+# Git settings
+git config --global user.name "Carter Green"
+git config --global user.email "cgreen@belvederetrading.com"
+git config --global core.preloadindex true
+git config --global core.autocrlf false
+
+# Create git commit template
+if [ ! -f $HOME/.gitmessage ]; then
+    echo "#       Overall Format" >> $HOME/.gitmessage
+    echo "#       [RedmineID] 50 Character title" >> $HOME/.gitmessage
+    echo " #       [Empty Line]" >> $HOME/.gitmessage
+    echo " #       Multi-Line description" >> $HOME/.gitmessage
+    echo " #[12345] ------------Length of 50 Char title-------------|" >> $HOME/.gitmessage
+    git config --global commit.template ~/.gitmessage
+fi
+
+# Create SSH key
+if [ ! -f $HOME/.ssh/id_rsa ]; then
+    ssh-keygen \
+        -t rsa \                                # Key type
+        -b 4096                                 # Bytes
+        -C "cgreen@belvederetrading.com" \      # Comment
+        -P "" \                                 # Passphrase
+        -f "$HOME/.ssh/id_rsa"                  # Output file
+    eval $(ssh-agent -s)
+    ssh-add ~/.ssh/id_rsa
+fi
+
+# Print public key for pasting in gerrit
+echo "Add the following to SSH Public Keys in Gerrit settings."
+echo
+cat $HOME/.ssh/id_rsa.pub
