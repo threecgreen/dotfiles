@@ -1,7 +1,7 @@
 " Vim configuration file
 "
-" Set line numbers and syntax highlighting on by default
-set number
+" Set hybrid line numbers and syntax highlighting on by default
+set number relativenumber
 syntax on
 
 filetype plugin indent on

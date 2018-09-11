@@ -50,6 +50,8 @@
 
     # Diff unstaged files
     d = diff
+    # Diff with line change count
+    ds = diff --stat
     # Diff already staged files
     dc = diff --cached
 
@@ -92,3 +94,6 @@
     s = status
     # git status and ignore untracked files
     suno = status -uno
+
+    # "Undo"
+    undo = reset HEAD~

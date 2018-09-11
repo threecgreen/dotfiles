@@ -2,9 +2,11 @@
 // Place in: ~/.config/Code/User/settings.json on Linux
 //           ~/Library/Application Support/Code/User/settings.json on Mac
 {
+    "breadcrumbs.enabled": true,
     "editor.fontFamily": "Hasklig",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
+    "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true,
     "editor.rulers": [80],
@@ -14,6 +16,12 @@
     // Don't show useless openEditors window
     "explorer.openEditors.visible": 0,
     "extensions.showRecommendationsOnlyOnDemand": true,
+    // Only associate HTML files in django projects with django HTML
+    "files.associations": {
+        "**/templates/*.html": "django-html",
+        "**/templates/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -28,14 +36,22 @@
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
     "window.zoomLevel": 0,
+    "window.titleBarStyle": "custom",
     "editor.renderWhitespace": "none",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+    "workbench.settings.editor": "json",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "material-icon-theme",
 
     // Language specific settings
     "[html]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+    },
+    "[django-html]": {
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
     },
 
     // Extension settings
@@ -46,6 +62,8 @@
         "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
     ],
     "cSpell.diagnosticLevel": "Hint",
+    // Emmet enthusiasts should have this to their configuration as well:
+    "emmet.includeLanguages": {"django-html": "html"},
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
@@ -128,14 +146,14 @@
     ],
     "vim.useSystemClipboard": true,
     "vim.handleKeys": {
-        "<C-b>": false,
-        "<C-f>": false,
         "<C-a>": false,
         "<C-j>": false,
+        "<C-k>": false,
         "<C-n>": false,
         "<C-N>": false
     },
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }
 
