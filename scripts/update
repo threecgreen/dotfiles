@@ -24,7 +24,7 @@ case "$distro" in
         echo
         echo "Update complete." ;;
     *"CentOS"*|*"RHEL"* )
-        sudo yum distro-sync -y
+        sudo yum check-update -y
         sudo yum update -y ;;
     *"Arch"* )
         aurman -Syyu --devel --noconfirm --noedit ;;
