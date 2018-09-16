@@ -211,7 +211,7 @@ prompt_virtualenv() {
 prompt_condaenv() {
   local condaenv_path="$CONDA_DEFAULT_ENV"
   if [[ -n $condaenv_path ]]; then
-    prompt_segment yellow black "$condaenv_path"
+    prompt_segment white blue "$condaenv_path"
   fi
 }
 

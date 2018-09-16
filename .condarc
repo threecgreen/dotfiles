@@ -1,0 +1,2 @@
+# Don't change prompt since custom zsh theme handles this
+changeps1: False
