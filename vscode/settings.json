@@ -42,6 +42,7 @@
     "workbench.settings.editor": "json",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "material-icon-theme",
 
     // Language specific settings
     "[html]": {
