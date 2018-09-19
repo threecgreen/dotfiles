@@ -61,25 +61,20 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[00;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[00;32m\]\u@\h\[\033[00m\]:\[\033[00;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
-
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -154,14 +149,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Add to path
-export PATH="$HOME/anaconda3/bin:$PATH"
-export PATH="$PATH:$HOME/bin"
-export GOPATH=$HOME/.go
-
-# Print screenfetch information at startup
-# if [ -f /usr/bin/neofetch ]; then neofetch; fi
-
 # Colored manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -182,9 +169,6 @@ done
 unset IFS
 `ssh-add`
 
-# Travis
-[ -f $HOME.travis/travis.sh ] && source $HOME/.travis/travis.sh
-
 # include local additions/modifications if they exist
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
@@ -193,3 +177,4 @@ fi
 export EDITOR=/usr/bin/nvim
 export VISUAL=$EDITOR
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+
