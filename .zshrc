@@ -112,5 +112,8 @@ fi
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
+# Pip completion
+eval "`pip completion --zsh`"
+compctl -K _pip_completion pip3
 
 source $ZSH/oh-my-zsh.sh
