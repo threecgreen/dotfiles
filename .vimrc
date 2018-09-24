@@ -54,6 +54,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 " Visualize undo tree
 Plug 'mbbill/undotree'
+" Fuzzy search
+Plug 'junegunn/fzf'
 " Lisp inferred parens
 " Requires rust
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}

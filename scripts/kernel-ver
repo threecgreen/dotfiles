@@ -11,8 +11,8 @@ red_text()
 {
     echo -en "\033[1;31m$1\033[0m"
 }
-red_text "Running: "
-pacman -Q | grep "^linux " | cut -d ' ' -f 2
 red_text "Installed: "
+pacman -Q | grep "^linux " | cut -d ' ' -f 2
+red_text "Running: "
 uname -r | cut -d '-' -f 1-3
 
