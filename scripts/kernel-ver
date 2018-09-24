@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Indicates the running kernel version and the installed kernel version, ie
 # the kernel version that will be running following the next reboot. Ony works
 # on Arch Linux.
