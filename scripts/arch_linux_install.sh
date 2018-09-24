@@ -118,7 +118,7 @@ reboot
 lspci -k | grep -A 2 -E "(VGA|3D)"
 
 # Install X server, window manager, download dotfiles
-pacman -S xorg xorg-server
+pacman -S xorg xorg-server xorg-xinit
 # Clone and install aurman to manage AUR packages
 git clone git@github.com:polygamma/aurman
 # Install i3-gaps, polybar, compton, redshift, rofi, plymouth
