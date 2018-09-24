@@ -45,3 +45,13 @@ if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
     alias vi="nvim"
     alias vim="nvim"
 fi
+
+# Use bat instead of cat if installed
+cat() {
+    if [ -f $HOME/bin/bat ]; then
+        $HOME/bin/bat -n --theme=Github "$@";
+    else
+        cat "$@";
+    fi
+}
+
