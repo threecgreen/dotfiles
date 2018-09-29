@@ -64,6 +64,8 @@
     "cSpell.diagnosticLevel": "Hint",
     // Emmet enthusiasts should have this to their configuration as well:
     "emmet.includeLanguages": {"django-html": "html"},
+    // .NET Core runtime instead of .NET
+    "FSharp.fsacRuntime": "netcore",
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
