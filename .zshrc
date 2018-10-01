@@ -8,7 +8,7 @@ ZSH=/usr/share/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # My custom agnoster theme
-ZSH_THEME="cgnoster"
+ZSH_THEME="powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -116,4 +116,14 @@ fi
 eval "`pip completion --zsh`"
 compctl -K _pip_completion pip3
 
+# Powerline specific settings
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable root_indicator background_jobs anaconda time)
+POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
+POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
+
 source $ZSH/oh-my-zsh.sh
+
