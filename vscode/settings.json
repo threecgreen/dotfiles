@@ -157,5 +157,6 @@
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.confirmSync": false,
 }
 
