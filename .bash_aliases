@@ -37,6 +37,7 @@ alias ......="cd ../../../../.."
 alias ll="ls -alF"
 alias la="ls -A"
 alias l="ls -CF"
+alias lt="ls -lt"
 
 # Make parent directories if they don"t exist and verbose output
 alias mkdir="mkdir -pv"
@@ -48,11 +49,10 @@ if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
 fi
 
 # Use bat instead of cat if installed
-cat() {
-    if [ -f $HOME/bin/bat ]; then
-        $HOME/bin/bat -n --theme=Github "$@";
-    else
-        cat "$@";
-    fi
-}
-
+if [ -f $HOME/bin/bat ]; then
+    alias cat="$HOME/bin/bat -n --theme=Github"
+fi
+# Use prettyping instead of ping
+if [ -f /usr/bin/prettyping ]; then
+    alias ping="prettyping --nolegend"
+fi
