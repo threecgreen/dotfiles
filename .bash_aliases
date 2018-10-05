@@ -52,7 +52,14 @@ fi
 if [ -f $HOME/bin/bat ]; then
     alias cat="$HOME/bin/bat -n --theme=Github"
 fi
+
 # Use prettyping instead of ping
 if [ -f /usr/bin/prettyping ]; then
     alias ping="prettyping --nolegend"
 fi
+
+# i3 Default terminal
+if [ -f /usr/bin/alacritty ]; then
+    export TERMINAL=alacritty
+fi
+
