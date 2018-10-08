@@ -3,5 +3,9 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.toggleSidebarVisibility",
-    }
+    },
+    {
+        "key": "f5",
+        "command": "workbench.action.reloadWindow"
+    },
 ]
