@@ -5,7 +5,7 @@ ZSH=/usr/share/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # My custom agnoster theme
-ZSH_THEME="powerlevel9k"
+ZSH_THEME="cgnoster"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -58,7 +58,6 @@ ZSH_CUSTOM=$HOME/.config/zsh_customizations
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
-  git
   pyenv
   python
 )
@@ -69,28 +68,19 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 # Exclude current user from prompt
-DEFAULT_USER=carter
+DEFAULT_USER=cgreen
 
 # Include aliases
 if [[ -f $HOME/.bash_aliases ]]; then
     . $HOME/.bash_aliases
 fi
 # Include local aliases
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
+if [ -f ~/.zsh_local ]; then
+    . ~/.zsh_local
 fi
 # Pip completion
-eval "`pip completion --zsh`"
-compctl -K _pip_completion pip3
-
-# Powerline specific settings
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable root_indicator background_jobs anaconda time)
-POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
-POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
+eval "`pip2.7 completion --zsh`"
+compctl -K _pip_completion pip
 
 source $ZSH/oh-my-zsh.sh
 
