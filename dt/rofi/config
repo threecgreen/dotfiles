@@ -3,7 +3,7 @@
  "Enabled modi" Set from: Default
 rofi.modi:                           window,run,ssh
 ! "Window width" Set from: Default
-! rofi.width:                          50
+rofi.width:                          30
 ! "Number of lines" Set from: Default
 rofi.lines:                          15
 ! "Number of columns" Set from: Default
