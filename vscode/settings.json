@@ -144,6 +144,6 @@
     },
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/bin/nvim",
-    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
 
