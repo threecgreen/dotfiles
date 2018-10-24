@@ -80,6 +80,7 @@
 
     ps = push
     pso = push origin
+    psf = push --force
 
     pl = pull
     plo = pull origin
@@ -92,9 +93,21 @@
     reh = reset --hard
     rehH = reset --hard HEAD
 
+    # Rebase
+    rbi = rebase --interactive HEAD
+    rbc = rebase --continue
+    rba = rebase --abort
+
+    # Stash
+    sh = stash
+    shsh = stash show
+    shp = stash pop
+    shls = stash list
+
     s = status
     # git status and ignore untracked files
     suno = status -uno
 
     # "Undo"
     undo = reset HEAD~
+
