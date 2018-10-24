@@ -1,11 +1,20 @@
 [core]
     editor = nvim
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    preloadindex = true
+    autocrlf = false
+    eol = crlf
+    whitespace = cr-at-eol
     pager = diff-so-fancy | less --tabs=4 -RFX
+
+[system]
+    autocrlf = false
 
 [user]
     name = Carter Green
-    email = cartergr@usc.edu
+    email = cgreen@belvederetrading.com
+
+[commit]
+    template = /home/cgreen/.gitmessage
 
 [color]
     diff = auto
