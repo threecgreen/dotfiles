@@ -63,3 +63,7 @@ if [ -f /usr/bin/alacritty ]; then
     export TERMINAL=alacritty
 fi
 
+# Xclip copy/paste
+cbcopy="xclip -selection c"
+cbpaste="xclip -o"
+
