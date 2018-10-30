@@ -38,16 +38,11 @@ bindsym $mod+Shift+q kill
 # start rofi launcher
 bindsym $mod+d exec bash -c "rofi -show run"
 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -77,16 +72,14 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
-#bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
-#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+o floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+o focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -203,7 +196,7 @@ bindsym $mod+backslash exec $HOME/.config/i3/lock.sh
 exec_always --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/suspend.sh" -detectsleep
 
 # Rofi window switcher
-bindsym $mod+w exec bash -c "rofi -show window"
+bindsym $mod+space exec bash -c "rofi -show window"
 
 # Change keyboard config with both shift keys
 bindcode Shift+50 exec $HOME/.config/polybar/keyboard-change.sh
@@ -212,21 +205,6 @@ bindcode Shift+62 exec $HOME/.config/polybar/keyboard-change.sh
 # Move workspace to other output
 bindcode $mod+Shift+Left move workspace to output left
 bindcode $mod+Shift+Right move workspace to output right
-
-# Quick launch mode
-set $quick_launcher_mode Quick Launcher
-bindsym $mod+o mode "$quick_launcher_mode"
-
-mode "$quick_launcher_mode" {
-    bindsym f exec firefox-developer-edition
-    bindsym g exec google-chrome-stable
-    bindsym t exec Thunar
-    bindsym c exec code
-    bindsym m exec pavucontrol
-
-    bindsym Escape mode "default"
-    bindsym Escape mode "default"
-}
 
 # Toggle gaps
 bindsym $mod+g exec $HOME/.config/i3/toggle_gaps.sh toggle
