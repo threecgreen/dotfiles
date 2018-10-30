@@ -104,6 +104,9 @@
     shp = stash pop
     shls = stash list
 
+    # Show
+    sw = show
+
     s = status
     # git status and ignore untracked files
     suno = status -uno
