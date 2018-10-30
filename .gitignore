@@ -2,3 +2,5 @@
 .DS_Store
 vscode/workspaceStorage/*
 .vscode
+scripts/bat
+scripts/diff-so-fancy
