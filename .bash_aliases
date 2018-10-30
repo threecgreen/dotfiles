@@ -64,6 +64,6 @@ if [ -f /usr/bin/alacritty ]; then
 fi
 
 # Xclip copy/paste
-cbcopy="xclip -selection c"
-cbpaste="xclip -o"
+alias cbcopy="xclip -selection c"
+alias cbpaste="xclip -o"
 
