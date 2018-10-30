@@ -37,6 +37,7 @@
     "files.hotExit": "onExitAndWindowClose",
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
+    "git.confirmSync": false,
     "window.zoomLevel": 0,
     "window.titleBarStyle": "custom",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
