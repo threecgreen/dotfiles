@@ -9,8 +9,10 @@
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true,
+    "editor.renderWhitespace": "none",
     "editor.rulers": [80],
     "editor.scrollBeyondLastLine": false,
+    "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
     // Don't show useless openEditors window
@@ -37,7 +39,6 @@
     "git.autofetch": true,
     "window.zoomLevel": 0,
     "window.titleBarStyle": "custom",
-    "editor.renderWhitespace": "none",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "workbench.settings.editor": "json",
     "workbench.startupEditor": "newUntitledFile",
@@ -155,6 +156,7 @@
         "<C-N>": false
     },
     "vim.enableNeovim": true,
+    "vim.foldfix": true,
     "vim.neovimPath": "/usr/bin/nvim",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "git.confirmSync": false,
