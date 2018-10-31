@@ -3,13 +3,13 @@
  "Enabled modi" Set from: Default
 rofi.modi:                           window,run,ssh
 ! "Window width" Set from: Default
-rofi.width:                          40
+rofi.width:                          45
 ! "Number of lines" Set from: Default
 rofi.lines:                          15
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
-rofi.font:                           Hasklig 10
+rofi.font:                           Hasklig 12
 ! "Border width" Set from: Default
 ! rofi.bw:                             1
 ! "Location on screen" Set from: Default
