@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = expressvpn
+
+[Action]
+Description = Restarting expressvpn daemon...
+When = PostTransaction
+Depends = expressvpn
+Exec = /bin/sh -c "systemctl daemon-reload; systemctl restart expressvpn.service"
