@@ -37,7 +37,7 @@
     "files.hotExit": "onExitAndWindowClose",
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -0.25,
     "window.titleBarStyle": "custom",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "workbench.settings.editor": "json",
