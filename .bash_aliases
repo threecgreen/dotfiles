@@ -49,8 +49,8 @@ if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
 fi
 
 # Use bat instead of cat if installed
-if [ -f $HOME/bin/bat ]; then
-    alias cat="$HOME/bin/bat -n --theme=Github"
+if [ -f /usr/bin/ccat ]; then
+    alias cat="ccat"
 fi
 
 # Use prettyping instead of ping
