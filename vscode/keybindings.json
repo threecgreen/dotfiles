@@ -2,10 +2,22 @@
 [
     {
         "key": "ctrl+h",
-        "command": "workbench.action.toggleSidebarVisibility",
+        "command": "workbench.action.toggleSidebarVisibility"
     },
     {
         "key": "f5",
         "command": "workbench.action.reloadWindow"
     },
+    {
+        "key": "ctrl+m f",
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    {
+        "key": "ctrl+m l",
+        "command": "workbench.action.moveEditorToLeftGroup"
+    },
+    {
+        "key": "ctrl+m h",
+        "command": "workbench.action.moveEditorToRightGroup"
+    }
 ]
