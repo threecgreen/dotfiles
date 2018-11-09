@@ -77,6 +77,12 @@ compctl -K _pip_completion pip
 
 source $ZSH/oh-my-zsh.sh
 
+# Pip completion
+eval "`pip2.7 completion --zsh`"
+compctl -K _pip_completion pip
+
+source $ZSH/oh-my-zsh.sh
+
 # Include aliases
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
