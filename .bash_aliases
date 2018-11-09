@@ -1,17 +1,19 @@
 # Bash aliases file
 # Determine OS
 case $(uname -s) in
-    Linux*) OS="linux";;
-    Darwin*) OS="mac";;
-    Solaris*) OS="solaris";;
-    BSD*) OS="bsd";;
-    CYGWIN*) OS="cygwin";;
+    Linux*) OS="Linux";;
+    Darwin*) OS="macOS";;
+    Solaris*) OS="Solaris";;
+    BSD*) OS="BSD";;
+    CYGWIN*) OS="Cygwin";;
+    MING*) OS="Ming";;
     *) echo "Unknown OS"
-        exit 1;;
+        OS="unknown";;
 esac
+export $OS
 
 # enable color support of ls
-if [ "$OS" = "mac" ]; then
+if [ "$OS" = "macOS" ]; then
     # Mac specific ls alias
     alias ls='ls -G'
 else
