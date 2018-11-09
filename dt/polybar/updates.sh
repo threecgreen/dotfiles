@@ -1,1 +1,0 @@
-/home/cgreen/git/dotfiles/lt/polybar/updates.sh
