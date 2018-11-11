@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -80,8 +80,8 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 # Pip completion
-eval "`pip completion --zsh`"
-compctl -K _pip_completion pip3
+eval "`pip completion --zsh`" &> /dev/null
+compctl -K _pip_completion pip3 &> /dev/null
 
 # Powerline specific settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
