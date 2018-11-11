@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # My custom agnoster theme
-ZSH_THEME="powerlevel9k"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -69,16 +69,8 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 # Exclude current user from prompt
-DEFAULT_USER=carter
+DEFAULT_USER=carter-green
 
-# Include aliases
-if [[ -f $HOME/.bash_aliases ]]; then
-    . $HOME/.bash_aliases
-fi
-# Include local aliases
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
 # Pip completion
 eval "`pip completion --zsh`" &> /dev/null
 compctl -K _pip_completion pip3 &> /dev/null
@@ -93,4 +85,13 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
 
 source $ZSH/oh-my-zsh.sh
+
+# Include aliases
+if [[ -f $HOME/.bash_aliases ]]; then
+    . $HOME/.bash_aliases
+fi
+# Include local aliases
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
 
