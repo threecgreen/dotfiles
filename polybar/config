@@ -65,7 +65,7 @@ font-2 = "Font Awesome 5 Free:size=8:;0"
 
 modules-left = i3 sys-updates aur-updates memory cpu
 modules-center =
-modules-right = keyboard date
+modules-right = keyboard date powermenu
 
 ; system tray disable
 ;tray-position = center
