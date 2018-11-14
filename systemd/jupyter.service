@@ -1,0 +1,16 @@
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=service
+PIDFile=/run/jupyter.pid
+ExecStart=/usr/bin/jupyter-notebook
+User=cgreen
+Group=linux_dev
+WorkingDirectory=/home/cgreen/notebooks
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
