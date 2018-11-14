@@ -251,9 +251,13 @@ mouse_bindings:
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
+  url:
+      launcher: xdg-open
+      modifiers: Control
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: true
 
 hide_cursor_when_typing: false
 
