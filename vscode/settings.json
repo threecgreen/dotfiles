@@ -12,7 +12,6 @@
     "editor.renderWhitespace": "none",
     "editor.rulers": [80],
     "editor.scrollBeyondLastLine": false,
-    "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
     // Don't show useless openEditors window
