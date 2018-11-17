@@ -71,26 +71,8 @@ fi
 # Exclude current user from prompt
 DEFAULT_USER=carter
 
-# Pip completion
-eval "`pip2.7 completion --zsh`"
-compctl -K _pip_completion pip
-
 source $ZSH/oh-my-zsh.sh
 
-# Pip completion
-eval "`pip2.7 completion --zsh`"
-compctl -K _pip_completion pip
-
-source $ZSH/oh-my-zsh.sh
-
-# Include aliases
-if [ -f $HOME/.bash_aliases ]; then
-    . $HOME/.bash_aliases
-fi
-# Include local aliases
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
 # Pip completion
 eval "`pip completion --zsh`"
 compctl -K _pip_completion pip3
@@ -105,4 +87,13 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
 
 source $ZSH/oh-my-zsh.sh
+
+# Include aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
+fi
+# Include local aliases
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
 
