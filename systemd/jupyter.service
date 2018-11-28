@@ -2,9 +2,9 @@
 Description=Jupyter Notebook
 
 [Service]
-Type=service
+Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/usr/bin/jupyter-notebook
+ExecStart=/opt/anaconda/bin/jupyter-notebook
 User=cgreen
 Group=linux_dev
 WorkingDirectory=/home/cgreen/notebooks
