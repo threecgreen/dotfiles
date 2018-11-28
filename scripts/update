@@ -3,11 +3,7 @@
 # Sudo echo to get super user priviledges at start of script
 set -e
 sudo echo
-if [ -f /etc/redhat-release ]; then
-    distro="$(cat /etc/redhat-release)"
-else
-    distro="$(cat /etc/issue)"
-fi
+distro="$(cat /etc/issue)"
 case "$distro" in
     *"Ubuntu"* )
         echo "Updating package lists..."
@@ -23,9 +19,6 @@ case "$distro" in
         sudo apt autoclean -y
         echo
         echo "Update complete." ;;
-    *"CentOS"*|*"RHEL"* )
-        sudo yum check-update -y
-        sudo yum update -y ;;
     *"Arch"* )
         aurman -Syyu --devel --noconfirm --noedit ;;
     * )
