@@ -2,7 +2,7 @@
 Description=Jupyter Notebook
 
 [Service]
-Type=service
+Type=simple
 PIDFile=/run/jupyter.pid
 ExecStart=/opt/anaconda/bin/jupyter-notebook
 User=carter
