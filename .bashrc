@@ -5,6 +5,9 @@
 # If you have anything that's using the Debug Trap or PROMPT_COMMAND 
 # change it to use preexec or precmd
 # See also https://github.com/rcaloras/bash-preexec
+if [ -f /bin/zsh ]; then
+    /bin/zsh
+fi
 
 # If not running interactively, don't do anything
 case $- in
