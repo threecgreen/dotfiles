@@ -133,3 +133,7 @@ function cgmake() {
   /usr/bin/time -f "Time: %E\t CPU: %P" numactl -C !0 ninja $1
   ccache -s
 }
+
+# GDB
+alias cgdb="sudo -E ASAN_OPTIONS=abort_on_error=1 gdb"
+
