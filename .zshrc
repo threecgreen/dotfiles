@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -61,7 +61,6 @@ ZSH_CUSTOM=$HOME/.config/zsh_customizations
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
-  git
   pyenv
   python
 )
@@ -102,18 +101,15 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 # Exclude current user from prompt
-DEFAULT_USER=carter
+DEFAULT_USER=cgreen
 
 # Include aliases
 if [[ -f $HOME/.bash_aliases ]]; then
     . $HOME/.bash_aliases
 fi
 # Include local aliases
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
+if [ -f ~/.zsh_local ]; then
+    . ~/.zsh_local
 fi
-# Pip completion
-eval "`pip completion --zsh`"
-compctl -K _pip_completion pip3
 
 source $ZSH/oh-my-zsh.sh
