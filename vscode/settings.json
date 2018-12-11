@@ -12,7 +12,7 @@
     "editor.renderWhitespace": "none",
     "editor.rulers": [80],
     "editor.scrollBeyondLastLine": false,
-    "editor.smoothScrolling": true,
+    "editor.smoothScrolling": false,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
     // Don't show useless openEditors window
@@ -148,4 +148,3 @@
     "vim.neovimPath": "/usr/bin/nvim",
     "typescript.updateImportsOnFileMove.enabled": "always"
 }
-
