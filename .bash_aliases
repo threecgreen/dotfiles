@@ -39,13 +39,13 @@ cat() {
 }
 
 connectGerrit() {
-     [[ $1 ]]    || { echo "No repository specified" >&2; return 1; }
+     [ $1 ] || { echo "No repository specified" >&2; return 1; }
      git submodule update --init;
     git remote add gerrit ssh://gerrit.belvederetrading.com:29418/$1;
 }
 
 setupGit() {
-    [[ $1 ]]    || { echo "No repository specified" >&2; return 1; }
+    [ $1 ]    || { echo "No repository specified" >&2; return 1; }
     git clone ssh://gerrit:29418/$1;
     cd $1;
     connectGerrit $1;
@@ -132,8 +132,11 @@ function cgmake() {
   ccache -z
   /usr/bin/time -f "Time: %E\t CPU: %P" numactl -C !0 ninja $1
   ccache -s
+  fixChronosGenerated
 }
 
 # GDB
-alias cgdb="sudo -E ASAN_OPTIONS=abort_on_error=1 gdb"
+function cgdb {
+    sudo -E ASAN_OPTIONS=abort_on_error=1 gdb --args "$@"
+}
 

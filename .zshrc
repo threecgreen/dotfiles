@@ -65,7 +65,6 @@ plugins=(
   python
 )
 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -103,13 +102,13 @@ fi
 # Exclude current user from prompt
 DEFAULT_USER=cgreen
 
+# Use bash completion compatibility
+autoload bashcompinit
+bashcompinit
+
 # Include aliases
 if [[ -f $HOME/.bash_aliases ]]; then
     . $HOME/.bash_aliases
-fi
-# Include local aliases
-if [ -f ~/.zsh_local ]; then
-    . ~/.zsh_local
 fi
 
 source $ZSH/oh-my-zsh.sh

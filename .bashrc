@@ -173,8 +173,8 @@ unset IFS
 `ssh-add`
 
 # include local additions/modifications if they exist
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
 export EDITOR=/usr/bin/nvim
