@@ -20,7 +20,7 @@ case "$distro" in
         echo
         echo "Update complete." ;;
     *"Arch"* )
-        aurman -Syyu --devel --noconfirm --noedit ;;
+        aurman -Syu --devel --noconfirm --noedit ;;
     * )
         echo "Unknown distro" ;;
 esac
