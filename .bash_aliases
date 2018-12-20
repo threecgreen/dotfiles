@@ -140,3 +140,9 @@ function cgdb {
     sudo -E ASAN_OPTIONS=abort_on_error=1 gdb --args "$@"
 }
 
+# Glances
+alias glances="/usr/bin/python -m glances"
+
+# Pylint
+alias btpylint="pylint --rcfile="$harborBase/Python/pylint.cfg""
+
