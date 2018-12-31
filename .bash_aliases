@@ -146,3 +146,9 @@ alias glances="/usr/bin/python -m glances"
 # Pylint
 alias btpylint="pylint --rcfile="$harborBase/Python/pylint.cfg""
 
+# Find latest log
+function latestLog() {
+    local logDir="/var/btlogs/unprivileged/$1"
+    echo "$logDir/$(ls -At "$logDir" | awk 'NR==1 { print $1 }')"
+}
+
