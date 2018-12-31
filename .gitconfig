@@ -1,11 +1,19 @@
 [core]
-    editor = nvim
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    editor = vim
+    preloadindex = true
+    whitespace = fix,-indent-with-non-tab,trailing-space
     pager = diff-so-fancy | less --tabs=4 -RFX
+    autocrlf = false
+
+[system]
+    autocrlf = false
 
 [user]
     name = Carter Green
-    email = cartergr@usc.edu
+    email = cgreen@belvederetrading.com
+
+[commit]
+    template = /home/cgreen/.gitmessage
 
 [color]
     diff = auto
@@ -94,7 +102,7 @@
     rehH = reset --hard HEAD
 
     # Rebase
-    rbi = rebase --interactive HEAD
+    rbi = rebase --interactive
     rbc = rebase --continue
     rba = rebase --abort
 
