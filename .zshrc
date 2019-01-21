@@ -60,6 +60,7 @@ plugins=(
   archlinux
   pyenv
   python
+  bgnotify
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
