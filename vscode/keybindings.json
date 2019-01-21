@@ -9,6 +9,10 @@
         "command": "workbench.action.reloadWindow"
     },
     {
+        "key": "f9",
+        "command": "workbench.action.debug.continue"
+    },
+    {
         "key": "ctrl+m f",
         "command": "workbench.files.action.focusFilesExplorer"
     },
