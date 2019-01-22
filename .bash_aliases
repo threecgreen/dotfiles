@@ -86,7 +86,7 @@ export PATH="$PATH:$HOME/bin"
 
 # Local variables
 buildDir="$HOME/build"
-harborBase="$HOME/nfs-git/Harbor"
+harborBase="$HOME/git/Harbor"
 pythonDir="$harborBase/Python"
 srcDir="$harborBase/Laser"
 clangTidyDir="$srcDir/ContinuousDelivery/ClangTidy"
