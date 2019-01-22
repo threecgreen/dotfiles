@@ -1,3 +1,7 @@
 [no_notification_unknown_packages]
-ccat
+mock-centos
+boost-54
+cpprestsdk-101
+protobuf30-cpp
+tbb-compat
 
