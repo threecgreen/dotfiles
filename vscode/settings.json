@@ -15,6 +15,7 @@
     "editor.smoothScrolling": false,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
+    "editor.mouseWheelScrollSensitivity": 3,
     // Don't show useless openEditors window
     "explorer.openEditors.visible": 0,
     "extensions.showRecommendationsOnlyOnDemand": true,
@@ -53,7 +54,14 @@
         "editor.tabSize": 2,
         "editor.detectIndentation": false,
     },
-
+    // Cquery
+    "cquery.cacheDirectory": "/home/cgreen/.cache/cquery",
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.formatting": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    // Clang
+    "clang.executable": "/usr/bin/clang++-5.0",
     // Emmet enthusiasts should have this to their configuration as well:
     "emmet.includeLanguages": {"django-html": "html"},
     // GitLens
