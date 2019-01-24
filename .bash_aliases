@@ -16,9 +16,11 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 # some more ls aliases
-alias ll="ls -alF"
-alias la="ls -A"
-alias l="ls -CF"
+alias ll="ls -lFh"
+alias la="ls -AlFh"
+alias l="ls -1Fh"
+alias lt="ls -ltFh"
+alias lat="ls -ltFAh"
 
 # Make parent directories if they don"t exist and verbose output
 alias mkdir="mkdir -pv"
@@ -77,7 +79,7 @@ alias compile="numactl -C !0 ninja $1"
 complete -F _ninjaComplete compile
 # complete -F _ninjaComplete compileNoSync
 
-findTests() {
+findExec() {
     find "$buildDir/" -type f -executable -name "*$1*"
 }
 
@@ -95,9 +97,8 @@ export PATH=$PATH:$HOME/bin
 alias tidy="taskset 0xFFFF /usr/bin/python $clangTidyDir/parallel-clang-tidy-diff.py -p $buildDir -j 16"
 # Run clang-tidy on a file
 alias tidyFile="taskset 0xFFFF /usr/bin/python $clangTidyDir/parallel-clang-tidy.py -j 16 -p $buildDir"
-# alias validate="python $harborBase/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $srcDir --stepDirectory $srcDir/BuildValidation"
-# alias hydraBuild="hydra ci build Laser --flags '-c clang -t debug -g ninja -d /build/cjackson/hydraBuild -s /build/cjackson/Harbor -a /build/cjackson/Harbor/Laser/ContinuousDelivery/ClangTidy -z false -n0 -m0 -r true'"
-# alias headerDb="compdb -p . list > tmp.json && mv compile_commands.json compile_commands.bak && mv tmp.json compile_commands.json"
+# Run clang-formatter
+alias clangFmt="/usr/bin/python $srcDir/ContinuousDelivery/ClangTidy/ClangFormatter.py -t git -p $harborBase"
 
 function cat() {
     # Check if the program exists
@@ -115,13 +116,29 @@ function fixChronosGenerated() {
     fi
 }
 
+# For cquery
+function cpCompileCommands() {
+    cp "$buildDir/compile_commands.json" "$harborBase"
+}
+
 # Normal cmake
-alias ncmake="cd $buildDir && cmake $srcDir -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja && fixChronosGenerated"
+function ncmake() {
+    cd $buildDir
+    cmake $srcDir -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja || exit 1
+    fixChronosGenerated
+    cpCompileCommands
+}
+
 # Release cmake
-alias rcmake="cmake $srcDir -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja && fixChronosGenerated"
+function rcmake() {
+    cd $buildDir
+    cmake $srcDir -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja || exit 1
+    fixChronosGenerated
+    cpCompileCommands
+}
 
 function nukeit() {
-  echo "Wiping build directory"
+  echo "Wiping build directory..."
   cd $buildDir
   find . ! -name 'compile_commands.json' -delete
   ncmake
