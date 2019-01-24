@@ -37,7 +37,7 @@ ZSH_THEME="cgnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -63,9 +63,10 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  archlinux
+  git
   pyenv
   python
+  bgnotify
 )
 
 # User configuration
@@ -105,13 +106,10 @@ fi
 # Exclude current user from prompt
 DEFAULT_USER=cgreen
 
-# Use bash completion compatibility
-autoload bashcompinit
-bashcompinit
+source $ZSH/oh-my-zsh.sh
 
 # Include aliases
 if [[ -f $HOME/.bash_aliases ]]; then
     . $HOME/.bash_aliases
 fi
 
-source $ZSH/oh-my-zsh.sh
