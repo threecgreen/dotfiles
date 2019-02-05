@@ -5,3 +5,6 @@ cpprestsdk-101
 protobuf30-cpp
 tbb-compat
 
+[miscellaneous]
+default_show_changes
+
