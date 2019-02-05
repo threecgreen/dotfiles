@@ -124,10 +124,24 @@
     "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=numpy"
     ],
-    "rust.rustup": {
-        "toolchain": "stable-x86_64-unknown-linux-gnu"
+    "todohighlight.defaultStyle": {
+        "color": ""
     },
-    "rust.mode": "rls",
+    "todohighlight.keywords": [
+        {
+            "text": "TODO:",
+            "backgroundColor": "#002b36",
+            "color": "#b58900",
+            "fontWeight": "bold"
+        },
+        {
+            "text": "FIXME:",
+            "backgroundColor": "#002b36",
+            "color": "#d33682",
+            "fontWeight": "bold"
+        },
+        // FIXME(carter):
+    ],
     "todohighlight.include": [
         "**/*.py",
         "**/*.tex",
@@ -135,7 +149,13 @@
         "**/*.hpp",
         "**/*.c",
         "**/*.h",
-        "**/*.sh"
+        "**/*.sh",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.cs",
+        "**/*.fs"
     ],
     "vim.insertModeKeyBindings": [
         {
