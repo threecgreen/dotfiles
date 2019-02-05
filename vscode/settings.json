@@ -52,7 +52,7 @@
     // Language specific settings
     "[html]": {
         "editor.tabSize": 2,
-        "editor.detectIndentation": false,
+        "editor.detectIndentation": false
     },
     // Cquery
     "cquery.cacheDirectory": "/home/cgreen/.cache/cquery",
@@ -62,11 +62,9 @@
     "C_Cpp.intelliSenseEngine": "Disabled",
     // Clang
     "clang.executable": "/usr/bin/clang++-5.0",
-    // Emmet enthusiasts should have this to their configuration as well:
     "emmet.includeLanguages": {"django-html": "html"},
     // GitLens
     "gitlens.statusBar.enabled": false,
-    // .NET Core runtime instead of .NET
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
@@ -93,7 +91,6 @@
         "*.bcf",
         "*.pyg",
         "*.synctex.gz(busy)",
-        // cprotect package
         "*.cpt"
     ],
     "latex-workshop.latex.tools": [
@@ -124,6 +121,23 @@
     "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=numpy"
     ],
+    "todohighlight.defaultStyle": {
+        "color": ""
+    },
+    "todohighlight.keywords": [
+        {
+            "text": "TODO:",
+            "backgroundColor": "#002b36",
+            "color": "#b58900",
+            "fontWeight": "bold"
+        },
+        {
+            "text": "FIXME:",
+            "backgroundColor": "#002b36",
+            "color": "#d33682",
+            "fontWeight": "bold"
+        }
+    ],
     "todohighlight.include": [
         "**/*.py",
         "**/*.tex",
@@ -131,8 +145,15 @@
         "**/*.hpp",
         "**/*.c",
         "**/*.h",
-        "**/*.sh"
+        "**/*.sh",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.cs",
+        "**/*.fs"
     ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
@@ -153,6 +174,5 @@
     },
     "vim.enableNeovim": true,
     "vim.foldfix": true,
-    "vim.neovimPath": "/usr/bin/nvim",
-    "typescript.updateImportsOnFileMove.enabled": "always"
+    "vim.neovimPath": "/usr/bin/nvim"
 }
