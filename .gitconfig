@@ -94,7 +94,8 @@
     rehH = reset --hard HEAD
 
     # Rebase
-    rbi = rebase --interactive HEAD
+    rb = rebase
+    rbi = rebase --interactive
     rbc = rebase --continue
     rba = rebase --abort
 
