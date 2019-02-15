@@ -1,4 +1,6 @@
 *.tmux/*
 .DS_Store
 vscode/workspaceStorage/*
+vscode/globalStorage/*
+scripts/global_protect
 .vscode
