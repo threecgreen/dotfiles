@@ -1,8 +1,5 @@
-[miscellaneous]
-default_show_changes
-
-[miscellaneous]
-default_show_changes
+[no_notification_unknown_packages]
+cg-fonts
 
 [miscellaneous]
 default_show_changes
