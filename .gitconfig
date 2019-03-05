@@ -3,10 +3,10 @@
     preloadindex = true
     whitespace = fix,-indent-with-non-tab,trailing-space
     pager = diff-so-fancy | less --tabs=4 -RFX
-    autocrlf = false
+    autocrlf = true
 
 [system]
-    autocrlf = false
+    autocrlf = true
 
 [user]
     name = Carter Green
