@@ -49,6 +49,7 @@
     cam = commit -am
     # Ammend commit
     cd = commit --amend
+    cdn = commit --amend --no-edit
     cdra = commit --amend --reset-author
 
     cp = cherry-pick
