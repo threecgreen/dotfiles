@@ -111,8 +111,8 @@ function cat() {
 
 function fixChronosGenerated() {
     # Fix line endings in generated file
-    if [ -f "$srcDir/BT.ChronosClient/Generated/ChronosScripts.cpp" ]; then
-        sed -i 's///g' "$srcDir/BT.ChronosClient/Generated/ChronosScripts.cpp"
+    if [ -f "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp" ]; then
+        sed -i 's///g' "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp"
     fi
 }
 
