@@ -29,12 +29,17 @@ alias mkdir="mkdir -pv"
 if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
     alias vi="nvim"
     alias vim="nvim"
+else
+    alias nvim="vim"
 fi
+
+# Add custom binaries/scripts
+export PATH=$PATH:$HOME/bin
 
 # Use bat instead of cat if installed
 cat() {
     if [ -f $HOME/bin/bat ]; then
-        $HOME/bin/bat -n --theme='Monokai Extended' "$@";
+        $HOME/bin/bat -n --theme=GitHub "$@"
     else
         cat "$@";
     fi
@@ -60,11 +65,6 @@ pythonDir="$harborBase/Python"
 srcDir="$harborBase/Laser"
 clangTidyDir="$srcDir/ContinuousDelivery/ClangTidy"
 
-# Sync VM Laser with laptop Laser
-# alias syncPython="rsync -aP --links --no-perms --no-owner --no-group -e 'ssh -p 2222' "chiwksdev231:/home/cgreen/win/git/Harbor/Python" "$harborBase""
-# alias syncLaser="rsync -aP --links --no-perms --no-owner --no-group -e 'ssh -p 2222' "chiwksdev231:/home/cgreen/win/git/Harbor/Laser" "$harborBase""
-# alias syncLaserDelete="rsync -aP --links --no-perms --no-owner --no-group -e 'ssh -p 2222' --delete "chiwksdev231:/home/cgreen/win/git/Harbor/Laser" "$harborBase""
-
 # Tab completion for ninja targets
 _ninjaComplete() {
     local cur=${COMP_WORDS[COMP_CWORD]}
@@ -73,41 +73,30 @@ _ninjaComplete() {
 complete -F _ninjaComplete ninja
 
 # Shortcut to compile with all cores
-# alias compile="syncLaser && numactl -C !0 ninja $1"
-# alias compileNoSync="numactl -C !0 ninja $1"
 alias compile="numactl -C !0 ninja $1"
 complete -F _ninjaComplete compile
 # complete -F _ninjaComplete compileNoSync
 
+# Find executable in build directory
 findExec() {
     find "$buildDir/" -type f -executable -name "*$1*"
 }
 
+# Run all executables according matching a glob
 execTests() {
     findTests $1 | xargs -n1 command
 }
 
-alias nvim=/usr/bin/vim
-alias vimm=/usr/bin/vim
-
-# Add binaries
-export PATH=$PATH:$HOME/bin
-
 # Run clang-tidy on changes, specify depth of commits with '-d'
-alias tidy="taskset 0xFFFF /usr/bin/python $clangTidyDir/parallel-clang-tidy-diff.py -p $buildDir -j 16"
+alias tidy="numactl -C !0 python $clangTidyDir/parallel-clang-tidy-diff.py -p $buildDir -j $(nproc --all)"
 # Run clang-tidy on a file
-alias tidyFile="taskset 0xFFFF /usr/bin/python $clangTidyDir/parallel-clang-tidy.py -j 16 -p $buildDir"
-# Run clang-formatter
-alias clangFmt="/usr/bin/python $srcDir/ContinuousDelivery/ClangTidy/ClangFormatter.py -t git -p $harborBase"
-
-function cat() {
-    # Check if the program exists
-    if [ -f $HOME/bin/bat ]; then
-        $HOME/bin/bat -n --theme=GitHub "$@"
-    else
-        cat "$@"
-    fi
-}
+alias tidyFile="numactl -C !0 python $clangTidyDir/parallel-clang-tidy.py -j $(nproc --all) -p $buildDir"
+# Run clang-format on changes
+alias clangFmt="python $clangTidyDir/ClangFormatter.py -t git -p $harborBase"
+# Run clang-format on dir
+alias clangFmtDir="python $clangTidyDir/ClangFormatter.py -t directory -p"
+# Build validation
+alias validate="python $harborBase/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $srcDir --stepDirectory $srcDir/BuildValidation"
 
 function fixChronosGenerated() {
     # Fix line endings in generated file
@@ -145,7 +134,7 @@ function nukeit() {
 }
 
 # Timed build
-function cgmake() {
+function tcmake() {
   ccache -z
   /usr/bin/time -f "Time: %E\t CPU: %P" numactl -C !0 ninja $1
   ccache -s
