@@ -2,8 +2,8 @@
     editor = nvim
     preloadindex = true
     autocrlf = false
-    eol = crlf
-    whitespace = cr-at-eol
+    savecrlf = false
+    whitespace = fix,-indent-with-non-tab,trailing-space
     pager = diff-so-fancy | less --tabs=4 -RFX
 
 [system]
