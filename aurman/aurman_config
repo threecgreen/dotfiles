@@ -1,5 +1,8 @@
 [no_notification_unknown_packages]
+acpi-volume
 cg-fonts
+jupyter-unit
+nobeep
 
 [miscellaneous]
 default_show_changes
