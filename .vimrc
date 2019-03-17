@@ -56,7 +56,6 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 " Fuzzy search
 Plug 'junegunn/fzf'
-" Lisp inferred parens
-" Requires rust
-Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+" PKGBUILD support
+Plug 'Firef0x/PKGBUILD.vim'
 call plug#end()
