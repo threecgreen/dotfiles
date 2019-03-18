@@ -60,11 +60,13 @@
     "C_Cpp.formatting": "Disabled",
     "C_Cpp.errorSquiggles": "Disabled",
     "C_Cpp.intelliSenseEngine": "Disabled",
-    // Clang
-    "clang.executable": "/usr/bin/clang++-5.0",
+    // Emmet
     "emmet.includeLanguages": {"django-html": "html"},
+    // ESLint
+    "eslint.options": { "configFile": "JS/.eslintrc" },
     // GitLens
     "gitlens.statusBar.enabled": false,
+    // LaTeX
     "latex-workshop.latex.clean.fileTypes":[
         "*.aux",
         "*.bbl",
@@ -153,7 +155,10 @@
         "**/*.cs",
         "**/*.fs"
     ],
+    // TSLint
+    "tslint.configFile": "JS/tslint.json",
     "typescript.updateImportsOnFileMove.enabled": "always",
+    // Vim
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
