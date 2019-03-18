@@ -25,6 +25,19 @@
 			"    $3",
 			"}"
 		]
-
+	},
+	"React Function Component": {
+		"prefix": "rfc",
+		"body": [
+			"import * as React from \"react\";",
+			"",
+			"interface I$1Props {",
+			"    $2",
+			"}",
+			"",
+			"export const $1: React.FunctionComponent<I$1Props> = (props) => {",
+			"    $3",
+			"};"
+		]
 	}
 }
