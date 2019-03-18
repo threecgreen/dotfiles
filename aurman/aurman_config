@@ -5,6 +5,7 @@ cpprestsdk-101
 protobuf30-cpp
 tbb-compat
 numpy-ld-fix
+jupyter-unit
 
 [miscellaneous]
 default_show_changes
