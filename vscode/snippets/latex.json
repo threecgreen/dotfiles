@@ -1,4 +1,14 @@
 {
+	// Recipe title
+	"Recipe": {
+		"prefix": "recipe",
+		"body": [
+			"\\recipe{$1}",
+			"{$2}",
+			"$3"
+		],
+		"description": "Recipe title and description"
+	},
 	// Quicker \item
 	"Item": {
 		"prefix": "item",
