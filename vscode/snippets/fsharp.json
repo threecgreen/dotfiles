@@ -23,7 +23,7 @@
 	"FsUnit TestCase": {
 		"prefix": "fctest",
 		"body": [
-			"[<TestCase($1)",
+			"[<TestCase($1)>]",
 			"let ``$2``($3) =",
 			"    $4",
 		]
