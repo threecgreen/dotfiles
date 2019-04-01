@@ -10,7 +10,7 @@
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "none",
-    "editor.rulers": [80],
+    "editor.rulers": [100, 150],
     "editor.scrollBeyondLastLine": false,
     "editor.smoothScrolling": false,
     "editor.wordWrap": "on",
@@ -40,6 +40,8 @@
     "files.trimTrailingWhitespace": true,
     "git.autofetch": false,
     "git.confirmSync": false,
+    // Belvedere custom cert
+    "http.proxyStrictSSL": false,
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "window.zoomLevel": -0.25,
@@ -56,10 +58,6 @@
     },
     // Cquery
     "cquery.cacheDirectory": "/home/cgreen/.cache/cquery",
-    "C_Cpp.autocomplete": "Disabled",
-    "C_Cpp.formatting": "Disabled",
-    "C_Cpp.errorSquiggles": "Disabled",
-    "C_Cpp.intelliSenseEngine": "Disabled",
     // Emmet
     "emmet.includeLanguages": {"django-html": "html"},
     // ESLint
