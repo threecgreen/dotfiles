@@ -6,6 +6,7 @@ protobuf30-cpp
 tbb-compat
 numpy-ld-fix
 jupyter-unit
+grub-power-options
 
 [miscellaneous]
 default_show_changes
