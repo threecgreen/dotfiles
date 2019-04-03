@@ -80,7 +80,6 @@ POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
 
 # Pip completion
-eval "`pip2.7 completion --zsh`"
 compctl -K _pip_completion pip
 
 source $ZSH/oh-my-zsh.sh
