@@ -14,26 +14,10 @@
     },
     {
         "key": "ctrl+m l",
-        "command": "workbench.action.moveEditorToLeftGroup"
-    },
-    {
-        "key": "ctrl+m h",
         "command": "workbench.action.moveEditorToRightGroup"
     },
     {
-        "key": "ctrl+shift+j",
-        "command": "workbench.action.terminal.focusNext"
-    },
-    {
-        "key": "ctrl+shift+k",
-        "command": "workbench.action.terminal.focusPrevious"
-    },
-    {
-        "key": "ctrl+shift+l",
-        "command": "workbench.action.nextPanelView"
-    },
-    {
-        "key": "ctrl+shift+h",
-        "command": "workbench.action.previousPanelView"
+        "key": "ctrl+m h",
+        "command": "workbench.action.moveEditorToLeftGroup"
     }
 ]
