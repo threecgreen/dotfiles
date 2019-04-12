@@ -175,7 +175,5 @@
         "<C-n>": false,
         "<C-N>": false
     },
-    "vim.enableNeovim": true,
     "vim.foldfix": true,
-    "vim.neovimPath": "/usr/bin/nvim"
 }
