@@ -3,7 +3,6 @@
 " Set hybrid line numbers and syntax highlighting on by default
 set number relativenumber
 syntax on
-
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -23,7 +22,6 @@ if &listchars ==# 'eol:$'
 endif
 set list
 
-
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
@@ -37,6 +35,8 @@ set dir=/tmp
 
 " Always have status bar
 set laststatus=2
+" UTF-8
+set encoding=utf-8
 
 " Quick access to vim undo tree
 nnoremap <F5> :UndotreeToggle<cr>
@@ -56,7 +56,5 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 " Fuzzy search
 Plug 'junegunn/fzf'
-" Lisp inferred parens
-" Requires rust
-Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 call plug#end()
+
