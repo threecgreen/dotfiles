@@ -4,3 +4,4 @@ vscode/workspaceStorage/*
 .vscode
 scripts/bat
 scripts/diff-so-fancy
+scripts/gitlist.py
