@@ -41,7 +41,7 @@ cat() {
     if [ -f $HOME/bin/bat ]; then
         $HOME/bin/bat -n --theme=GitHub "$@"
     else
-        cat "$@";
+        /usr/bin/cat "$@";
     fi
 }
 
@@ -126,6 +126,7 @@ function rcmake() {
     cpCompileCommands
 }
 
+# Wipe build directory and re-run cmake
 function nukeit() {
   echo "Wiping build directory..."
   cd $buildDir
@@ -151,6 +152,9 @@ alias glances="/usr/bin/python -m glances"
 
 # Pylint
 alias btpylint="pylint --rcfile="$harborBase/Python/pylint.cfg""
+
+# Gitlist
+alias gitlist="$HOME/.envs/gitlist/bin/python $HOME/bin/gitlist.py"
 
 # Find latest log
 function latestLog() {
