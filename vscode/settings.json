@@ -173,7 +173,10 @@
         "<C-j>": false,
         "<C-k>": false,
         "<C-n>": false,
-        "<C-N>": false
+        "<C-t>": false,
+        "<C-N>": false,
+        "<C-w>": false,
+        "<C-o>": false,
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "javascript.updateImportsOnFileMove.enabled": "always"
