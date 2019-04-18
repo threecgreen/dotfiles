@@ -175,5 +175,6 @@
         "<C-n>": false,
         "<C-N>": false
     },
-    "vim.foldfix": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
