@@ -165,10 +165,8 @@ for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
 # AUTOSTART
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpaper.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 # exec_always --no-startup-id $HOME/.config/i3/compton.sh &
-exec --no-startup-id redshift
 
 # Pulse Audio controls
 #increase sound volume
@@ -199,8 +197,8 @@ exec_always --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/suspend
 bindsym $mod+space exec bash -c "rofi -show window"
 
 # Change keyboard config with both shift keys
-bindcode Shift+50 exec $HOME/.config/polybar/keyboard-change.sh
-bindcode Shift+62 exec $HOME/.config/polybar/keyboard-change.sh
+# bindcode Shift+50 exec $HOME/.config/polybar/keyboard-change.sh
+# bindcode Shift+62 exec $HOME/.config/polybar/keyboard-change.sh
 
 # Move workspace to other output
 bindcode $mod+Shift+Left move workspace to output left
@@ -218,14 +216,3 @@ client.unfocused        #002b36 #002b36 #839496 #073642
 # Window title padding
 for_window [class=".*"] title_format " %title"
 
-# Assign workspaces to a specific monitor
-workspace 1 output DP-0
-workspace 2 output DP-0
-workspace 3 output DP-0
-workspace 4 output DP-0
-workspace 5 output DP-0
-workspace 6 output HDMI-0
-workspace 7 output HDMI-0
-workspace 8 output HDMI-0
-workspace 9 output HDMI-0
-workspace 10 output HDMI-0
