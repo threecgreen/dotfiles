@@ -155,7 +155,6 @@
     ],
     // TSLint
     "tslint.configFile": "JS/tslint.json",
-    "typescript.updateImportsOnFileMove.enabled": "always",
     // Vim
     "vim.insertModeKeyBindings": [
         {
