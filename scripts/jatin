@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Usage: jatin start|stop COMPONENT INSTANCE
+# Equivalent of sudo hydra instance start|stop COMPONENT INSTANCE --soft-only
+
+help() {
+    echo "jatin is an alias for hydra instance management commands, however unlike"
+    echo "hydra, it only performs soft operations."
+    echo
+    echo "Usage: jatin start|stop COMPONENT INSTANCE"
+    echo "Equivalent of hydra instance start|stop COMPONENT INSTANCE --soft-only"
+}
+
+# Support help args
+if [ $1 == "-h" ] || [ $1 == "--help" ]; then
+    help
+    exit 0
+fi
+# Check syntax
+if [ $# != 3 ]; then
+    echo -e "\033[1m\033[31mInvalid syntax:\033[0m \'$@\'" >> /dev/stderr
+    help
+    exit 1
+fi
+
+sudo hydra instance $1 $2 $3 --soft-only 2>&1 | sed 's/[Ss]oft/jatin/g'
+
+# vim: syntax=sh
+
