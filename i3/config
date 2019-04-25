@@ -197,6 +197,9 @@ exec_always --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/suspend
 # Rofi window switcher
 bindsym $mod+space exec bash -c "rofi -show window"
 
+# Ranger file eXplorer in new terminal
+bindsym $mod+x exec bash -c "$HOME/.config/i3/ranger.sh"
+
 # Change keyboard config with both shift keys
 bindcode Shift+50 exec $HOME/.config/polybar/keyboard-change.sh
 bindcode Shift+62 exec $HOME/.config/polybar/keyboard-change.sh
