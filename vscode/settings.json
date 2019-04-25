@@ -58,6 +58,13 @@
     },
     // Cquery
     "cquery.cacheDirectory": "/home/cgreen/.cache/cquery",
+    "[cpp]": {
+        "editor.codeLens": false
+    },
+    "[c]": {
+        "editor.codeLens": false
+    },
+    "cquery.formatting.enabled": false,
     // Emmet
     "emmet.includeLanguages": {"django-html": "html"},
     // ESLint
