@@ -57,7 +57,6 @@ ZSH_CUSTOM=$HOME/.config/zsh_customizations
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  archlinux
   git
   pyenv
   python
@@ -70,10 +69,6 @@ fi
 
 # Exclude current user from prompt
 DEFAULT_USER=carter-green
-
-# Pip completion
-eval "`pip completion --zsh`" &> /dev/null
-compctl -K _pip_completion pip3 &> /dev/null
 
 # Powerline specific settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
