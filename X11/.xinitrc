@@ -15,5 +15,9 @@ synclient TapButton2=3
 # Wallpaper
 eval `~/.fehbg`
 
+# Load XResources
+xrdb -merge "$HOME/.XResources"
+
 # Start i3-gaps
 exec i3
+
