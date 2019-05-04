@@ -177,6 +177,7 @@
         "<C-N>": false,
         "<C-w>": false,
         "<C-o>": false,
+        "<C-f>": true
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "git.confirmSync": false,
