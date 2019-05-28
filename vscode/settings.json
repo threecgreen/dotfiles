@@ -126,7 +126,7 @@
     "latex-workshop.message.update.show": false,
     // whitelist numpy to remove lint errors
     "python.linting.pylintArgs": [
-        "--extension-pkg-whitelist=numpy"
+        "--extension-pkg-whitelist=numpy",
     ],
     "todohighlight.defaultStyle": {
         "color": ""
@@ -185,5 +185,6 @@
         "<C-o>": false,
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "C_Cpp.updateChannel": "Insiders"
 }
