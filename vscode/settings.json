@@ -42,8 +42,6 @@
     "git.confirmSync": false,
     // Belvedere custom cert
     "http.proxyStrictSSL": false,
-    "terminal.integrated.rendererType": "dom",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "window.zoomLevel": -0.25,
     "window.titleBarStyle": "custom",
     "workbench.settings.editor": "json",
