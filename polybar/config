@@ -30,7 +30,7 @@ green = #859900
 
 [bar/right]
 width = 100%
-height = 27
+height = 25
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -96,7 +96,7 @@ type = custom/script
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = ${colors.foreground}
-format-underline = ${colors.green}
+format-underline = ${colors.background}
 interval = 2
 
 exec = $HOME/.config/polybar/keyboard-layout.sh
@@ -220,17 +220,17 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
+format-prefix = "cpu "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.red}
+format-underline = ${colors.background}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "Mem "
+format-prefix = "mem "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.cyan}
+format-underline = ${colors.background}
 label = %percentage_used%%
 
 [module/wlan]
@@ -290,7 +290,7 @@ time-alt = %H:%M:%S
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.blue}
+format-underline = ${colors.background}
 
 label = %date% %time%
 
@@ -348,18 +348,18 @@ interval = 2
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/updates.sh
-format-prefix = "SYS "
+format-prefix = "sys "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.blue}
+format-underline = ${colors.background}
 
 [module/aur-updates]
 ; Available AUR package upgrades
 type = custom/script
 interval = 600
 exec = ~/.config/polybar/updates.sh aur
-format-prefix = "AUR "
+format-prefix = "aur "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.green}
+format-underline = ${colors.background}
 
 [settings]
 screenchange-reload = true
