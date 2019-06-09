@@ -33,6 +33,7 @@
         "**/__pycache__": true,
         "**/*.pyc": true
     },
+    "files.insertFinalNewline": true,
     "files.hotExit": "onExitAndWindowClose",
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
