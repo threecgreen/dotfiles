@@ -3,10 +3,10 @@
 fw=$(expressvpn status | head -n 1 | cut -d' ' -f 1 | sed -r 's/\x1B\[[0-9;]+m//g')
 # Not connected
 if [[ "$fw" == "Reconnecting" ]]; then
-    echo "Reconnecting…"
+    echo "reconnecting…"
 elif [[ "$fw" == "Connected" ]]; then
     # Is connected, print server location
     echo $(expressvpn status | head -n 1 | cut -d' ' -f 3-)
 else
-    echo "Not connected"
+    echo "not connected"
 fi

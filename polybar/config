@@ -60,12 +60,14 @@ padding = 2
 module-margin = 1
 
 font-0 = Futura Std:pixelsize=12;1
-font-1 = "FontAwesome:size=10:;0"
-font-2 = "Font Awesome 5 Free:size=8:;0"
+font-1 = MaterialIcons:size:15:antialias=false;10
+font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-3 = siji:size=10;1
+font-4 = fontawesome:size=11:;0
 
-modules-left = i3 wlan memory cpu system-nvidia-smi temperature
+modules-left = i3 wlan sep memory sep cpu sep system-nvidia-smi sep temperature
 modules-center = spotify
-modules-right = redshift keyboard volume date powermenu
+modules-right = redshift keyboard sep volume sep date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -81,8 +83,8 @@ wm-restack = i3
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 ;cursor-click = pointer
 ;cursor-scroll = ns-resize
@@ -140,8 +142,8 @@ wm-restack = i3
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 ;cursor-click = pointer
 ;cursor-scroll = ns-resize
@@ -156,7 +158,6 @@ type = custom/script
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = ${colors.foreground}
-format-underline = ${colors.green}
 interval = 2
 
 exec = $HOME/.config/polybar/keyboard-layout.sh
@@ -181,7 +182,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.background-alt}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -285,47 +286,56 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.red}
-label = %percentage:2%%
+format = <label> <ramp-coreload>
+;label = ""
+format-prefix =
+label =
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 3
+ramp-coreload-0-foreground =${colors.foreground}
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 3
+ramp-coreload-1-foreground = ${colors.foreground}
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 3
+ramp-coreload-2-foreground = ${colors.foreground}
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 3
+ramp-coreload-3-foreground = ${colors.foreground}
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 3
+ramp-coreload-4-foreground = ${colors.foreground}
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 3
+ramp-coreload-5-foreground = ${colors.foreground}
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 3
+ramp-coreload-6-foreground = ${colors.foreground}
+ramp-coreload-7 = █
+ramp-coreload-7-font = 3
+ramp-coreload-7-foreground = ${colors.foreground}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "Mem "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.cyan}
 label = %percentage_used%%
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
 interface = wlp3s0
 interval = 3
-
-format-connected = <label-connected>
-format-connected-underline = ${colors.violet}
-label-connected = %essid%
-
-;format-disconnected =
+; Don't show it if disconnected
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected =  none
+; When connected
+format-connected = <ramp-signal><label-connected>
+label-connected = " %essid%"
 
-; ramp-signal-0 = "----"
-; ramp-signal-1 = "+---"
-; ramp-signal-2 = "++--"
-; ramp-signal-3 = "+++-"
-; ramp-signal-4 = "++++"
-; ramp-signal-0 = ""
-; ramp-signal-1 = ""
-; ramp-signal-2 = ""
-; ramp-signal-3 = ""
-; ramp-signal-4 = ""
-; Use smaller font awesome size for signal strength indicator
-; ramp-signal-font = 3
-; ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = ""
+ramp-signal-1 =""
+ramp-signal-2 =""
 
 [module/eth]
 type = internal/network
@@ -347,92 +357,66 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = "%a %b %e"
-date-alt = " %Y-%m-%d"
+format-padding = 0
 
+date =
+date-alt = "%a %B %e"
 time = %H:%M
-time-alt = %H:%M:%S
+time-alt = %H:%M
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.blue}
 
 label = %date% %time%
 
 [module/volume]
 type = internal/pulseaudio
+format-volume = <label-volume> <bar-volume>
 
-format-volume = <ramp-volume> <label-volume>
-format-volume-underline = ${colors.magenta}
+format-muted-prefix =
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = sound muted
 
-label-muted = ""
-label-muted-foreground = ${colors.foreground-alt}
-format-muted-underline = ${colors.magenta}
-
-; Ramp volume
-ramp-volume-0 = ""
-ramp-volume-1 = ""
-ramp-volume-2 = ""
-ramp-volume-foreground = ${colors.foreground-alt}
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP0
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.yellow}
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix =" "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
-ramp-capacity-4 = ""
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = ""
-animation-charging-1 = ""
-animation-charging-2 = ""
-animation-charging-3 = ""
-animation-capacity-4 = ""
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 0
+bar-volume-fill = ─
+bar-volume-fill-font = 0
+bar-volume-empty = ─
+bar-volume-empty-font = 0
+bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 1
 warn-temperature = 60
-interval = 2
+interval = 5
+format = <ramp> <label>
 
-format = <label>
-format-prefix = "Temp "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.orange}
-format-warn = Temp <label-warn>
-format-warn-foreground = ${self.label-warn-foreground}
-format-warn-underline = ${self.format-underline}
-
+format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.orange}
+label-warn-foreground = ${colors.alert}
 
-ramp-0 =
-ramp-1 =
-ramp-2 =
-ramp-foreground = ${colors.foreground-alt}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
 
-format-spacing = 1
+format-spacing = 4
+;format-foreground = ${colors.background}
+;format-background = ${colors.primary}
 
 label-open =""
 label-open-foreground = ${colors.red}
@@ -475,7 +459,7 @@ menu-3-1-exec = systemctl hibernate
 [module/spotify]
 type = custom/script
 exec = $HOME/.config/polybar/spotify.sh
-;format-underline = ${colors.green}
+format-padding = 0
 interval = 2
 
 [module/brightness]
@@ -483,7 +467,6 @@ type = custom/script
 exec = $HOME/.config/polybar/brightness.sh
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.orange}
 interval = 2
 click-left = $HOME/.config/polybar/change-brightness.sh raise
 click-right = $HOME/.config/polybar/change-brightness.sh lower
@@ -506,7 +489,6 @@ format-underline = ${colors.magenta}
 type = custom/script
 interval = 5
 exec = ~/.config/polybar/redshift.sh
-format-underline = ${colors.red}
 
 [module/weathericons]
 ; from Wiki
@@ -518,38 +500,39 @@ exec = ~/.config/polybar/weathericons.py
 [module/sys-updates]
 ; Available system package upgrades
 type = custom/script
-interval = 600
+interval = 300
 exec = ~/.config/polybar/updates.sh
-format-prefix = "SYS "
+format-prefix = "sys "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.blue}
 
 [module/aur-updates]
 ; Available AUR package upgrades
 type = custom/script
-interval = 600
+interval = 300
 exec = ~/.config/polybar/updates.sh aur
-format-prefix = "AUR "
+format-prefix = "aur "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.green}
 
 [module/expressvpn]
 ; VPN status
 type = custom/script
 interval = 5
 exec = ~/.config/polybar/expressvpn.sh
-format-prefix = "VPN "
+format-prefix = "vpn "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.red}
 
 [module/system-nvidia-smi]
 ; GPU usage
 type = custom/script
 exec = ~/.config/polybar/system-nvidia-smi.sh
 interval = 2
-format-prefix = "GPU "
+format-prefix = "gpu "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.green}
+
+[module/sep]
+type = custom/text
+content = |
+content-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true
