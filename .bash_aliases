@@ -107,12 +107,14 @@ function fixChronosGenerated() {
 
 # For cquery
 function cpCompileCommands() {
-    cp "$buildDir/compile_commands.json" "$harborBase"
+    cp ./compile_commands.json "$harborBase"
 }
 
 # Normal cmake
 function ncmake() {
-    cd $buildDir
+    if [ $# != 1 ] || [ "$1" != "--no-cd" ]; then
+        cd $buildDir
+    fi
     cmake $srcDir -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja || exit 1
     fixChronosGenerated
     cpCompileCommands
@@ -120,10 +122,11 @@ function ncmake() {
 
 # Release cmake
 function rcmake() {
-    cd $buildDir
+    if [ $# != 1 ] || [ "$1" != "--no-cd" ]; then
+        cd $buildDir
+    fi
     cmake $srcDir -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja || exit 1
     fixChronosGenerated
-    cpCompileCommands
 }
 
 # Wipe build directory and re-run cmake
@@ -144,7 +147,7 @@ function tcmake() {
 
 # GDB
 function cgdb {
-    sudo -E ASAN_OPTIONS=abort_on_error=1 gdb --args "$@"
+    sudo -E ASAN_OPTIONS=abort_on_error=1 numactl -C !0 gdb --args "$@"
 }
 
 # Glances

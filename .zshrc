@@ -108,6 +108,9 @@ DEFAULT_USER=cgreen
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
 # Include aliases
 if [[ -f $HOME/.bash_aliases ]]; then
     . $HOME/.bash_aliases
