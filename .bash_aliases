@@ -22,6 +22,9 @@ alias l="ls -1Fh"
 alias lt="ls -ltFh"
 alias lat="ls -ltFAh"
 
+# Add custom binaries/scripts
+export PATH=$PATH:$HOME/bin
+
 # Make parent directories if they don"t exist and verbose output
 alias mkdir="mkdir -pv"
 
@@ -32,9 +35,6 @@ if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
 else
     alias nvim="vim"
 fi
-
-# Add custom binaries/scripts
-export PATH=$PATH:$HOME/bin
 
 # Use bat instead of cat if installed
 cat() {
@@ -98,20 +98,20 @@ alias clangFmtDir="python $clangTidyDir/ClangFormatter.py -t directory -p"
 # Build validation
 alias validate="python $harborBase/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $srcDir --stepDirectory $srcDir/BuildValidation"
 
-function fixChronosGenerated() {
+fixChronosGenerated() {
     # Fix line endings in generated file
     if [ -f "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp" ]; then
         sed -i 's///g' "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp"
     fi
 }
 
-# For cquery
-function cpCompileCommands() {
+# For syntax completion
+cpCompileCommands() {
     cp ./compile_commands.json "$harborBase"
 }
 
 # Normal cmake
-function ncmake() {
+ncmake() {
     if [ $# != 1 ] || [ "$1" != "--no-cd" ]; then
         cd $buildDir
     fi
@@ -121,7 +121,7 @@ function ncmake() {
 }
 
 # Release cmake
-function rcmake() {
+rcmake() {
     if [ $# != 1 ] || [ "$1" != "--no-cd" ]; then
         cd $buildDir
     fi
@@ -130,7 +130,7 @@ function rcmake() {
 }
 
 # Wipe build directory and re-run cmake
-function nukeit() {
+nukeit() {
   echo "Wiping build directory..."
   cd $buildDir
   find . ! -name 'compile_commands.json' -delete
@@ -138,7 +138,7 @@ function nukeit() {
 }
 
 # Timed build
-function tcmake() {
+tcmake() {
   ccache -z
   /usr/bin/time -f "Time: %E\t CPU: %P" numactl -C !0 ninja $1
   ccache -s
@@ -146,7 +146,7 @@ function tcmake() {
 }
 
 # GDB
-function cgdb {
+cgdb() {
     sudo -E ASAN_OPTIONS=abort_on_error=1 numactl -C !0 gdb --args "$@"
 }
 
@@ -160,8 +160,24 @@ alias btpylint="pylint --rcfile="$harborBase/Python/pylint.cfg""
 alias gitlist="$HOME/.envs/gitlist/bin/python $HOME/bin/gitlist.py"
 
 # Find latest log
-function latestLog() {
+latestLog() {
     local logDir="/var/btlogs/unprivileged/$1"
     echo "$logDir/$(ls -At "$logDir" | awk 'NR==1 { print $1 }')"
+}
+
+# Find replace in working directory
+findReplace() {
+    [ $1 ]  || { echo "No search term specified" >&2; return -1 }
+    [ $2 ]  || { echo "No replace term specified" >&2; return -1 }
+    ag -l $1 | xargs sed -i "s/$1/$2/g"
+}
+
+# Delete one or more git branches
+rmBranch() {
+    [ $1 ] || { echo "Must specify at least one branch" >&2; return -1 }
+    for b in $@
+    do
+        git branch -D "$b"
+    done
 }
 
