@@ -39,6 +39,10 @@
     {
         "key": "ctrl+shift+h",
         "command": "workbench.action.previousPanelView"
+    },
+    {
+        "key": "ctrl+m t",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 ]
 
