@@ -9,7 +9,8 @@ fi
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # My custom agnoster theme
-ZSH_THEME="powerlevel10k"
+# ZSH_THEME="powerlevel10k"
+ZSH_THEME="cg-lambda"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
