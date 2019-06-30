@@ -1,11 +1,16 @@
 # Path to your oh-my-zsh installation.
-ZSH=$HOME/.oh-my-zsh
+ZSH="$HOME/.oh-my-zsh"
+
+if [ "$TERM" = "xterm" ]; then
+    export TERM=xterm-256color
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # My custom agnoster theme
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel10k"
+ZSH_THEME="cg-lambda"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -67,8 +72,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-# Exclude current user from prompt
-DEFAULT_USER=carter-green
+source $ZSH/oh-my-zsh.sh
 
 # Powerline specific settings
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -82,7 +86,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
 source $ZSH/oh-my-zsh.sh
 
 # Include aliases
-if [[ -f $HOME/.bash_aliases ]]; then
+if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
 fi
 # Include local aliases

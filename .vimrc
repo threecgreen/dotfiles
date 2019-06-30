@@ -56,7 +56,4 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 " Fuzzy search
 Plug 'junegunn/fzf'
-" Lisp inferred parens
-" Requires rust
-Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 call plug#end()
