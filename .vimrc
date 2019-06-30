@@ -23,7 +23,6 @@ if &listchars ==# 'eol:$'
 endif
 set list
 
-
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
@@ -46,6 +45,9 @@ if has("persistent_undo")
     set undofile
 endif
 
+" Colorscheme
+colorscheme industry
+
 " Vim Plug
 call plug#begin('~/.local/share/nvim/plugged')
 " Minimalist mode
@@ -59,3 +61,4 @@ Plug 'junegunn/fzf'
 " PKGBUILD support
 Plug 'Firef0x/PKGBUILD.vim'
 call plug#end()
+
