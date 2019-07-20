@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 ZSH="$HOME/.oh-my-zsh"
 
+cd $HOME
+
 if [ "$TERM" = "xterm" ]; then
     export TERM=xterm-256color
 fi
@@ -93,4 +95,20 @@ fi
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/carter/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/carter/.conda/etc/profile.d/conda.sh" ]; then
+        . "/home/carter/.conda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/carter/.conda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

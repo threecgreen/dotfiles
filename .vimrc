@@ -46,6 +46,8 @@ if has("persistent_undo")
     set undofile
 endif
 
+colorscheme industry
+
 " Vim Plug
 call plug#begin('~/.local/share/nvim/plugged')
 " Minimalist mode

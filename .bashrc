@@ -8,5 +8,5 @@ case $- in
       *) return;;
 esac
 
-/usr/bin/zsh
+bash -c zsh
 
