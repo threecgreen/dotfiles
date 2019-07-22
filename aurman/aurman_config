@@ -1,5 +1,6 @@
 [no_notification_unknown_packages]
 grub-power-options
+cg-fonts
 
 [miscellaneous]
 default_show_changes
