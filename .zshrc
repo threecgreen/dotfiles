@@ -64,8 +64,6 @@ ZSH_CUSTOM=$HOME/.config/zsh_customizations
 plugins=(
   archlinux
   git
-  pyenv
-  python
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
