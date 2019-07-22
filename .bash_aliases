@@ -46,8 +46,8 @@ cat() {
 }
 
 connectGerrit() {
-     [ $1 ] || { echo "No repository specified" >&2; return 1; }
-     git submodule update --init;
+    [ $1 ] || { echo "No repository specified" >&2; return 1; }
+    git submodule update --init;
     git remote add gerrit ssh://gerrit.belvederetrading.com:29418/$1;
 }
 
@@ -59,8 +59,8 @@ setupGit() {
 }
 
 # Local variables
-buildDir="$HOME/build"
-harborBase="$HOME/git/Harbor"
+buildDir="/build/cgreen/laser-build"
+harborBase="/build/cgreen/git/Harbor"
 pythonDir="$harborBase/Python"
 srcDir="$harborBase/Laser"
 clangTidyDir="$srcDir/ContinuousDelivery/ClangTidy"
@@ -97,6 +97,8 @@ alias clangFmt="python $clangTidyDir/ClangFormatter.py -t git -p $harborBase"
 alias clangFmtDir="python $clangTidyDir/ClangFormatter.py -t directory -p"
 # Build validation
 alias validate="python $harborBase/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $srcDir --stepDirectory $srcDir/BuildValidation"
+# IWYU
+alias iwyu="numactl -C !0 /usr/bin/python $srcDir/ContinuousDelivery/IWYU/iwyu.py -build $buildDir -src $srcDir"
 
 fixChronosGenerated() {
     # Fix line endings in generated file
