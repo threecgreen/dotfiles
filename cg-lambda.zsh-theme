@@ -45,11 +45,28 @@ prompt_git() {
   fi
 }
 
+pshort_dir() {
+  $HOME/.local/bin/pshort $PWD 18
+}
+
+virtualenv_info() {
+  [[ -n ${VIRTUAL_ENV} ]] || return
+  echo " [${VIRTUAL_ENV:t}]"
+}
+
+anaconda_info() {
+  # Depending on the conda version, either might be set. This
+  # variant works even if both are set.
+  local _path=$CONDA_ENV_PATH$CONDA_PREFIX
+  if ! [ -z "$_path" ]; then
+    echo " [$(basename $_path)]"
+  fi
+}
+
 local ret_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)"
 
-PROMPT=' ${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(prompt_git)→ '
-
-# ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-# ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[yellow]%}✗"
-# ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%}"
+PROMPT='${ret_status} %{$fg[cyan]%}$(pshort_dir)%{$reset_color%} $(prompt_git)→ '
+# %* is 24-hour format, with seconds
+# RPROMPT='%{$fg[white]%}%* %{$fg[blue]%}$(virtualenv_info)$(anaconda_info)%{$reset_color%}'
+RPROMPT='%*%{$fg[blue]%}$(virtualenv_info)$(anaconda_info)%{$reset_color%}'
 

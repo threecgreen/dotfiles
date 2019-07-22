@@ -65,8 +65,6 @@ ZSH_CUSTOM=$HOME/.config/zsh_customizations
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  pyenv
-  python
 )
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
