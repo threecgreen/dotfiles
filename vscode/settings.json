@@ -36,10 +36,13 @@
         "**/__pycache__": true,
         "**/*.pyc": true
     },
+    "files.eol": "\n",
     "files.hotExit": "onExitAndWindowClose",
+    "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "git.autofetch": false,
     "git.confirmSync": false,
+    "terminal.integrated.rendererType": "dom",
     // Belvedere custom cert
     "http.proxyStrictSSL": false,
     "window.zoomLevel": -0.25,
@@ -54,15 +57,14 @@
         "editor.tabSize": 2,
         "editor.detectIndentation": false
     },
-    // Cquery
-    "cquery.cacheDirectory": "/home/cgreen/.cache/cquery",
     "[cpp]": {
-        "editor.codeLens": false
+        // "editor.codeLens": false
+        "editor.tabSize": 2,
     },
     "[c]": {
-        "editor.codeLens": false
+        // "editor.codeLens": false
+        "editor.tabSize": 2,
     },
-    "cquery.formatting.enabled": false,
     // Emmet
     "emmet.includeLanguages": {"django-html": "html"},
     // ESLint

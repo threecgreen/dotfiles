@@ -54,8 +54,6 @@ alias cbpaste="xclip -o"
 export WORKON_HOME="$HOME/.envs"
 export PROJECT_HOME="$HOME/nfs-git"
 . /usr/bin/virtualenvwrapper.sh
-# Conda
-. /opt/anaconda/etc/profile.d/conda.sh
 
 # Scripts
 export PATH="$PATH:$HOME/bin"
