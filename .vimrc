@@ -29,6 +29,8 @@ match ExtraWhitespace /\s\+$\|\t/
 " Use global clipboard
 set clipboard=unnamedplus
 
+colorscheme industry
+
 " Set swapfile directory to /tmp
 set swapfile
 set dir=/tmp
