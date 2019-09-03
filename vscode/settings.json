@@ -34,7 +34,8 @@
         "**/.DS_Store": true,
         "**/.idea": true,
         "**/__pycache__": true,
-        "**/*.pyc": true
+        "**/*.pyc": true,
+        "**/*.egg-info": true
     },
     "files.eol": "\n",
     "files.hotExit": "onExitAndWindowClose",
@@ -125,6 +126,7 @@
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.message.update.show": false,
     // whitelist numpy to remove lint errors
+    "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=numpy",
     ],
