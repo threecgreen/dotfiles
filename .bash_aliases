@@ -60,9 +60,12 @@ setupGit() {
 
 # Local variables
 buildDir="/build/cgreen/laser-build"
+buildDir2="/build/cgreen/laser-build2"
 harborBase="/build/cgreen/git/Harbor"
+harborBase2="/build/cgreen/git/Harbor2"
 pythonDir="$harborBase/Python"
 srcDir="$harborBase/Laser"
+srcDir2="$harborBase2/Laser"
 clangTidyDir="$srcDir/ContinuousDelivery/ClangTidy"
 
 # Tab completion for ninja targets
@@ -100,43 +103,42 @@ alias validate="python $harborBase/Python/BuildUtils/BuildUtils/GenericBuildVali
 # IWYU
 alias iwyu="numactl -C !0 /usr/bin/python $srcDir/ContinuousDelivery/IWYU/iwyu.py -build $buildDir -src $srcDir"
 
-fixChronosGenerated() {
-    # Fix line endings in generated file
-    if [ -f "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp" ]; then
-        sed -i 's///g' "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp"
-    fi
-}
-
-# For syntax completion
-cpCompileCommands() {
-    cp ./compile_commands.json "$harborBase"
-}
+# fixChronosGenerated() {
+#     # Fix line endings in generated file
+#     if [ -f "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp" ]; then
+#         sed -i 's///g' "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp"
+#     fi
+# }
 
 # Normal cmake
 ncmake() {
-    if [ $# != 1 ] || [ "$1" != "--no-cd" ]; then
-        cd $buildDir
+    if [ $# -gt 0 ] && [ $1 = '2' ]; then
+        cmake $srcDir2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
+    else
+        cmake $srcDir -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
     fi
-    cmake $srcDir -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja || exit 1
-    fixChronosGenerated
-    cpCompileCommands
 }
 
 # Release cmake
 rcmake() {
-    if [ $# != 1 ] || [ "$1" != "--no-cd" ]; then
-        cd $buildDir
+    if [ $# -gt 0 ] && [ $1 = '2' ]; then
+        cmake $srcDir2 -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
+    else
+        cmake $srcDir -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
     fi
-    cmake $srcDir -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja || exit 1
-    fixChronosGenerated
 }
 
 # Wipe build directory and re-run cmake
 nukeit() {
-  echo "Wiping build directory..."
-  cd $buildDir
-  find . ! -name 'compile_commands.json' -delete
-  ncmake
+    if [ $# > 0 ] && [ $1 = '2' ]; then
+        echo "Wiping build 2 directory..."
+        cd $buildDir2
+    else
+        echo "Wiping build directory..."
+        cd $buildDir
+    fi
+    find . ! -name 'compile_commands.json' -delete
+    ncmake $@
 }
 
 # Timed build
