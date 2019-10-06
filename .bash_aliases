@@ -57,6 +57,7 @@ export PROJECT_HOME="$HOME/nfs-git"
 
 # Scripts
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Fake hydra via remote execution
 hydra() {
