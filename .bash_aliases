@@ -185,3 +185,12 @@ rmBranch() {
     done
 }
 
+# Clean python hydra deployments older than a week
+cleanPython() {
+    sudo find /var/cache/btpython -ctime +7 -delete
+}
+
+cleanLaser() {
+    sudo find /usr/local/bin -name 'BT.*' -ctime +7 -delete
+}
+
