@@ -5,10 +5,6 @@
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
-        "key": "f5",
-        "command": "workbench.action.reloadWindow"
-    },
-    {
         "key": "ctrl+m f",
         "command": "workbench.files.action.focusFilesExplorer"
     },
