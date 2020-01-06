@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 ZSH="$HOME/.oh-my-zsh"
 
-cd $HOME
+# cd $HOME
 
 if [ "$TERM" = "xterm" ]; then
     export TERM=xterm-256color
@@ -74,28 +74,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Powerline specific settings
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status dir_writable root_indicator background_jobs anaconda time)
-POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
-POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=""
-POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
-
-source $ZSH/oh-my-zsh.sh
-
-# Include aliases
-if [ -f $HOME/.bash_aliases ]; then
-    . $HOME/.bash_aliases
-fi
-# Include local aliases
-if [ -f ~/.bash_local ]; then
-    . ~/.bash_local
-fi
-
-
-# >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/carter/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -108,5 +86,13 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
+
+# Include aliases
+if [ -f $HOME/.bash_aliases ]; then
+    . $HOME/.bash_aliases
+fi
+# Include local aliases
+if [ -f ~/.bash_local ]; then
+    . ~/.bash_local
+fi
 
