@@ -7,7 +7,6 @@ prompt_git() {
   local PL_BRANCH_CHAR
   () {
     local LC_ALL="" LC_CTYPE="en_US.UTF-8"
-    PL_BRANCH_CHAR=$'\ue0a0'         # 
   }
   local ref dirty mode repo_path branch_color
 
@@ -41,7 +40,7 @@ prompt_git() {
     # zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info
     # ${vcs_info_msg_0_%% }
-    echo -n "${branch_color}${ref/refs\/heads\//$PL_BRANCH_CHAR }%{$reset_color%}${mode} "
+    echo -n "${branch_color}${ref/refs\/heads\//}%{$reset_color%}${mode} "
   fi
 }
 
