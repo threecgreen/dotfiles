@@ -161,7 +161,9 @@ gaps outer 0
 # Only have gaps when more than one container on a workspace
 # smart_gaps on
 
+# No gaps in these workspaces
 workspace 3 gaps inner 0
+workspace 5 gaps inner 0
 
 # Borders
 for_window [class=".*"] border pixel 0
