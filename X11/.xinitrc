@@ -21,6 +21,8 @@ xrandr --addmode Virtual1 "2560x1440_60.00"
 
 xrandr --output Virtual1 --mode '2560x1440_60.00'
 
+export TERM=xterm-256color
+
 # Start i3-gaps
 exec i3
 
