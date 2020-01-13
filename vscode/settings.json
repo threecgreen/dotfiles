@@ -162,8 +162,6 @@
         "**/*.cs",
         "**/*.fs"
     ],
-    // TSLint
-    "tslint.configFile": "JS/tslint.json",
     // Vim
     "vim.insertModeKeyBindings": [
         {
