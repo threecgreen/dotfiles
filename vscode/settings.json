@@ -35,7 +35,10 @@
         "**/.idea": true,
         "**/__pycache__": true,
         "**/*.pyc": true,
-        "**/*.egg-info": true
+        "**/*.egg-info": true,
+        "**/node_modules": true,
+        "**/build": true,
+        "**/dist": true
     },
     "files.eol": "\n",
     "files.hotExit": "onExitAndWindowClose",
