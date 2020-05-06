@@ -151,7 +151,7 @@ default_orientation horizontal
 gaps inner 25
 gaps outer 0
 # Disable for certain workspaces
-# workspace 2 gaps inner 0
+workspace 2 gaps inner 0
 # workspace 3 gaps inner 0
 # workspace 4 gaps inner 0
 # workspace 5 gaps inner 0
@@ -190,8 +190,6 @@ bindsym $mod+Shift+Tab workspace prev
 
 # Lock screen
 bindsym $mod+backslash exec $HOME/.config/i3/lock.sh
-# Suspend and lock automatically after 15 minutes of inactivity
-exec_always --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/suspend.sh" -detectsleep
 
 # Rofi window switcher
 bindsym $mod+space exec bash -c "rofi -show window"
@@ -230,4 +228,3 @@ workspace 7 output HDMI-0
 workspace 8 output HDMI-0
 workspace 9 output HDMI-0
 workspace 10 output HDMI-0
-
