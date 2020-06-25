@@ -116,3 +116,5 @@
     # "Undo"
     undo = reset HEAD~
 
+[pull]
+	ff = only
