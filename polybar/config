@@ -29,7 +29,7 @@ cyan = #2aa198
 green = #859900
 
 [bar/right]
-monitor = HDMI-0
+monitor = HDMI-A-0
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -65,7 +65,7 @@ font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:size=10;1
 font-4 = fontawesome:size=11:;0
 
-modules-left = i3 wlan sep memory sep cpu sep system-nvidia-smi sep temperature
+modules-left = i3 wlan sep memory sep cpu sep gpu sep temperature gpu-temperature
 modules-center = spotify
 modules-right = redshift keyboard sep volume sep date powermenu
 
@@ -90,7 +90,7 @@ wm-restack = i3
 ;cursor-scroll = ns-resize
 
 [bar/left]
-monitor = DP-0
+monitor = DisplayPort-0
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -521,10 +521,28 @@ exec = ~/.config/polybar/expressvpn.sh
 format-prefix = "vpn "
 format-prefix-foreground = ${colors.foreground-alt}
 
-[module/system-nvidia-smi]
+[module/gpu-temperature]
+type = internal/temperature
+; junction sensor
+hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:0a:00.0/0000:0b:00.0/0000:0c:00.0/hwmon/hwmon2/temp2_input
+warn-temperature = 80
+interval = 5
+format = <ramp> <label>
+
+format-warn = <ramp> <label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+
+[module/gpu]
 ; GPU usage
 type = custom/script
-exec = ~/.config/polybar/system-nvidia-smi.sh
+exec = ~/.config/polybar/rocm-smi.sh
 interval = 2
 format-prefix = "gpu "
 format-prefix-foreground = ${colors.foreground-alt}
