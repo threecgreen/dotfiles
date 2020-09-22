@@ -1,6 +1,7 @@
 [no_notification_unknown_packages]
 grub-power-options
 cg-fonts
+jupyter-unit
 
 [miscellaneous]
 default_show_changes
