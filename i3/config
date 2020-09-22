@@ -164,9 +164,8 @@ for_window [class=".*"] border pixel 0
 hide_edge_borders both
 
 # AUTOSTART
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpaper.jpg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
-exec_always --no-startup-id $HOME/.config/i3/compton.sh &
+exec_always --no-startup-id $HOME/.config/i3/picom.sh &
 exec --no-startup-id redshift
 
 # Pulse Audio controls
