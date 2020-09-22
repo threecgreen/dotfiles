@@ -54,6 +54,9 @@
         "editor.tabSize": 2,
         "editor.detectIndentation": false,
     },
+    "[rust]": {
+        "editor.formatOnSave": true,
+    }
 
     // Extension settings
     "cSpell.ignoreRegExpList": [
