@@ -67,7 +67,7 @@ font-4 = fontawesome:size=11:;0
 
 modules-left = i3 wlan sep memory sep cpu sep gpu sep temperature gpu-temperature
 modules-center = spotify
-modules-right = redshift keyboard sep volume sep date powermenu
+modules-right = notifications sep redshift keyboard sep volume sep date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -126,7 +126,7 @@ font-2 = "Font Awesome 5 Free:size=8:;0"
 
 modules-left = i3 sys-updates aur-updates
 modules-center = spotify
-modules-right = expressvpn date powermenu
+modules-right = notifications sep expressvpn sep date
 
 ; system tray disable
 ;tray-position = center
@@ -319,7 +319,7 @@ ramp-coreload-7-foreground = ${colors.foreground}
 type = internal/memory
 interval = 2
 label = %percentage_used%%
-format-prefix = " "
+format-prefix = "mem "
 format-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
@@ -551,6 +551,13 @@ format-prefix-foreground = ${colors.foreground-alt}
 type = custom/text
 content = |
 content-foreground = ${colors.foreground-alt}
+
+[module/notifications]
+type = custom/script
+exec = rofication-statusi3blocks.py
+format-prefix = "notifications "
+format-prefix-foreground = ${colors.foreground-alt}
+click-left = rofication-gui.py
 
 [settings]
 screenchange-reload = true

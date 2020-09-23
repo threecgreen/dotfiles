@@ -167,6 +167,7 @@ hide_edge_borders both
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always --no-startup-id $HOME/.config/i3/picom.sh &
 exec --no-startup-id redshift
+exec --no-startup-id rofication-daemon.py
 
 # Pulse Audio controls
 #increase sound volume
@@ -206,6 +207,11 @@ bindcode $mod+Shift+Right move workspace to output right
 
 # Toggle gaps
 bindsym $mod+g exec $HOME/.config/i3/toggle_gaps.sh toggle
+
+# Screenshot
+# Print=PrintScreen
+bindsym --release Print exec $HOME/.config/i3/screenshot.sh
+bindsym --release Shift+Print exec $HOME/.config/i3/screenshot.sh -s
 
 # Colors                border  backgr. text    indicator
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
