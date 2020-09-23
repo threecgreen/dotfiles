@@ -31,7 +31,8 @@
         "**/.DS_Store": true,
         "**/.idea": true,
         "**/__pycache__": true,
-        "**/*.pyc": true
+        "**/*.pyc": true,
+        "**/node_modules": true,
     },
     "files.insertFinalNewline": true,
     "files.hotExit": "onExitAndWindowClose",
@@ -56,7 +57,11 @@
     },
     "[rust]": {
         "editor.formatOnSave": true,
-    }
+    },
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
 
     // Extension settings
     "cSpell.ignoreRegExpList": [
