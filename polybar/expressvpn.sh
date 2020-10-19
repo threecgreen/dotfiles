@@ -14,5 +14,11 @@ elif [[ "$fw" == "Connected" ]]; then
     # Is connected, print server location
     echo $(expressvpn status | head -n 1 | cut -d' ' -f 3-)
 else
-    echo "not connected"
+    # Global protect
+    gp=$(netctl status global_protect | grep 'Status:' | cut -d ' ' -f 7 | sed -r 's/^"|"$//g')
+    if [[ "$gp" == "online" ]]; then
+        echo "telx development"
+    else
+        echo "not connected"
+    fi
 fi
