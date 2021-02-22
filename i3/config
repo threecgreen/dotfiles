@@ -36,7 +36,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start rofi launcher
-bindsym $mod+d exec bash -c "rofi -show run"
+bindsym $mod+d exec sh -c "rofi -show run"
 
 # change focus
 bindsym $mod+j focus left
@@ -151,10 +151,10 @@ default_orientation horizontal
 gaps inner 25
 gaps outer 0
 # Disable for certain workspaces
-workspace 2 gaps inner 0
-# workspace 3 gaps inner 0
+# workspace 2 gaps inner 0
+workspace 3 gaps inner 0
 # workspace 4 gaps inner 0
-# workspace 5 gaps inner 0
+workspace 5 gaps inner 0
 
 # Only have gaps when more than one container on a workspace
 # smart_gaps on
@@ -178,9 +178,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Media player controls
-bindsym $mod+F2 exec playerctl play-pause
-bindsym $mod+F3 exec playerctl next
-bindsym $mod+F1 exec playerctl previous
+bindsym $mod+F2 exec playerctl -p spotify play-pause
+bindsym $mod+F3 exec playerctl -p spotify next
+bindsym $mod+F1 exec playerctl -p spotify previous
 
 # Cycle through workspaces
 bindsym $mod+Control+Right workspace next
@@ -192,10 +192,13 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+backslash exec $HOME/.config/i3/lock.sh
 
 # Rofi window switcher
-bindsym $mod+space exec bash -c "rofi -show window"
+bindsym $mod+space exec sh -c "rofi -show window"
 
 # Ranger file eXplorer in new terminal
-bindsym $mod+x exec bash -c "$HOME/.config/i3/ranger.sh"
+bindsym $mod+x exec sh -c "$HOME/.config/i3/ranger.sh"
+
+# Notifications
+bindsym $mod+n exec rofication-gui.py
 
 # Change keyboard config with both shift keys
 bindcode Shift+50 exec $HOME/.config/polybar/keyboard-change.sh
@@ -212,6 +215,7 @@ bindsym $mod+g exec $HOME/.config/i3/toggle_gaps.sh toggle
 # Print=PrintScreen
 bindsym --release Print exec $HOME/.config/i3/screenshot.sh
 bindsym --release Shift+Print exec $HOME/.config/i3/screenshot.sh -s
+bindsym --release Control+Shift+Print exec $HOME/.config/i3/screenshot_clipboard.sh
 
 # Colors                border  backgr. text    indicator
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
