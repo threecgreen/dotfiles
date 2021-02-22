@@ -2,11 +2,17 @@
 
 # Set keyboard map
 setxkbmap -layout us
+# Xresources
+xrdb -merge "$HOME/.Xresources"
 
-xrandr --output DP-0 --pos 0x0 --output HDMI-0 --pos 1920x0
+xrandr --output DisplayPort-0 --pos 0x0 --output HDMI-A-0 --right-of DisplayPort-0 --scale 0.75x0.75
 
 # Wallpaper
-eval `~/.fehbg`
+eval "$HOME/.fehbg"
 
 # Start i3-gaps
-exec i3
+exec i3 >> ~/.cache/i3.log 2>&1
+
+# Start Awesome WM
+# awesome
+
