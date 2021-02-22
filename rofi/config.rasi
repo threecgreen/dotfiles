@@ -2,6 +2,6 @@ configuration {
 	modi: "window,run,ssh";
 	width: 35;
 	lines: 15;
-	font: "Hasklig 10";
+	font: "Hasklig 12";
 	theme: "solarized_alternate";
 }

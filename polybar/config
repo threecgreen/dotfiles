@@ -31,7 +31,7 @@ green = #859900
 [bar/right]
 monitor = HDMI-A-0
 width = 100%
-height = 27
+height = 36
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -59,11 +59,11 @@ padding = 2
 ; number of spaces to add before/after each module
 module-margin = 1
 
-font-0 = Futura Std:pixelsize=12;1
-font-1 = MaterialIcons:size:15:antialias=false;10
-font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-3 = siji:size=10;1
-font-4 = fontawesome:size=11:;0
+font-0 = Futura Std:pixelsize=16;1
+font-1 = MaterialIcons:size:15:antialias=false;14
+font-2 = unifont:fontformat=truetype:size=11:antialias=false;0
+font-3 = siji:size=14;1
+font-4 = fontawesome:size=15;0
 
 modules-left = i3 wlan sep memory sep cpu sep gpu sep temperature gpu-temperature
 modules-center = spotify
