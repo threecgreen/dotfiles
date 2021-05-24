@@ -5,7 +5,7 @@ setxkbmap -layout us
 # Xresources
 xrdb -merge "$HOME/.Xresources"
 
-xrandr --output DisplayPort-0 --pos 0x0 --output HDMI-A-0 --right-of DisplayPort-0 --scale 0.75x0.75
+xrandr --output DisplayPort-0 --pos 0x0 --scale 1x1 --output HDMI-A-0 --right-of DisplayPort-0 --scale 1x1
 
 # Wallpaper
 eval "$HOME/.fehbg"
