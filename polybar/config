@@ -59,15 +59,15 @@ padding = 2
 ; number of spaces to add before/after each module
 module-margin = 1
 
-font-0 = Futura Std:pixelsize=16;1
-font-1 = MaterialIcons:size:15:antialias=false;14
-font-2 = unifont:fontformat=truetype:size=11:antialias=false;0
+font-0 = Futura Std:pixelsize=20;1
+font-1 = MaterialIcons:size:15:antialias=false;15
+font-2 = unifont:fontformat=truetype:size=13:antialias=false;0
 font-3 = siji:size=14;1
 font-4 = fontawesome:size=15;0
 
 modules-left = i3 wlan sep memory sep cpu sep gpu sep temperature gpu-temperature
 modules-center = spotify
-modules-right = notifications sep redshift keyboard sep volume sep date powermenu
+modules-right = notifications sep redshift keyboard sep audio-sink volume sep date powermenu
 
 ; system tray disable
 ;tray-position = center
@@ -92,7 +92,7 @@ wm-restack = i3
 [bar/left]
 monitor = DisplayPort-0
 width = 100%
-height = 27
+height = 48
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -120,9 +120,9 @@ padding = 2
 ; number of spaces to add before/after each module
 module-margin = 1
 
-font-0 = Futura Std:pixelsize=12;1
-font-1 = "Font Awesome 5 Free:size=10:;0"
-font-2 = "Font Awesome 5 Free:size=8:;0"
+font-0 = Futura Std:pixelsize=20;1
+font-1 = "fontawesome:size=15:;0"
+font-2 = "fontawesome:size=12:;0"
 
 modules-left = i3 sys-updates aur-updates
 modules-center = spotify
@@ -558,6 +558,13 @@ exec = rofication-statusi3blocks.py
 format-prefix = "notifications "
 format-prefix-foreground = ${colors.foreground-alt}
 click-left = rofication-gui.py
+
+[module/audio-sink]
+type = custom/script
+exec = ~/.config/polybar/default-sink.sh
+interval = 1
+format-foreground = ${colors.foreground-alt}
+click-left = ~/.config/polybar/change-default-sink.sh
 
 [settings]
 screenchange-reload = true
