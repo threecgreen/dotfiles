@@ -4,7 +4,7 @@
 {
     "breadcrumbs.enabled": true,
     "editor.fontFamily": "Hasklig",
-    "editor.fontSize": 13,
+    "editor.fontSize": 12,
     "editor.fontLigatures": true,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
@@ -16,12 +16,10 @@
     "editor.wrappingIndent": "indent",
     // Don't show useless openEditors window
     "explorer.openEditors.visible": 0,
-    "extensions.showRecommendationsOnlyOnDemand": true,
     // Only associate HTML files in django projects with django HTML
     "files.associations": {
-        "**/templates/*.html": "django-html",
-        "**/templates/*": "django-txt",
-        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements",
+        "*.html": "html"
     },
     "files.exclude": {
         "**/.git": true,
@@ -40,7 +38,6 @@
     "git.autofetch": true,
     "window.zoomLevel": -0.25,
     "window.titleBarStyle": "custom",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
     "workbench.settings.editor": "json",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.colorTheme": "Solarized Dark",
@@ -60,82 +57,39 @@
     },
     "[cpp]": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+        "editor.detectIndentation": false,
+    },
+    "[proto3]": {
+        "editor.tabSize": 2,
     },
 
     // Extension settings
-    "cSpell.ignoreRegExpList": [
-        // Match abbreviations
-        "\b(?:[A-Z]){2,}",
-        // Match email
-        "<?[\\w.\\-+]+@\\w+(\\.\\w+)+>?"
-    ],
-    "cSpell.diagnosticLevel": "Hint",
+    // Use clangd
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "C_Cpp.autocomplete": "Disabled",
+    "C_Cpp.errorSquiggles": "Disabled",
     // Emmet enthusiasts should have this to their configuration as well:
     "emmet.includeLanguages": {"django-html": "html"},
-    // .NET Core runtime instead of .NET
-    "FSharp.fsacRuntime": "netcore",
-    "latex-workshop.latex.clean.fileTypes":[
-        "*.aux",
-        "*.bbl",
-        "*.blg",
-        "*.idx",
-        "*.ind",
-        "*.lof",
-        "*.lot",
-        "*.out",
-        "*.toc",
-        "*.acn",
-        "*.acr",
-        "*.alg",
-        "*.glg",
-        "*.glo",
-        "*.gls",
-        "*.ist",
-        "*.fls",
-        "*.log",
-        "*.fdb_latexmk",
-        "*.synctex.gz",
-        "*.run.xml",
-        "*.tex.bak",
-        "*.bcf",
-        "*.pyg",
-        "*.synctex.gz(busy)",
-        // cprotect package
-        "*.cpt"
-    ],
-    "latex-workshop.latex.tools": [
-        {
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "-shell-escape",
-                "%DOC%"
-            ],
-            "name": "Latexmk"
-        }
-    ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "toolchain",
-            "tools": [
-                "Latexmk"
-            ]
-        }
-    ],
-    "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.message.update.show": false,
+    "vscode-neovim.neovimExecutablePaths.linux": "nvim",
+    "vscode-neovim.neovimInitVimPaths.linux": "",
+    "python.linting.pylintEnabled": true,
     // whitelist numpy to remove lint errors
     "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=numpy"
     ],
+    "python.showStartPage": false,
     "todohighlight.defaultStyle": {
         "color": ""
     },
     "todohighlight.keywords": [
+        {
+            "text": "TODO(cgreen):",
+            "backgroundColor": "#002b36",
+            "color": "#b58900",
+            "fontWeight": "bold"
+        },
         {
             "text": "TODO:",
             "backgroundColor": "#002b36",
@@ -148,7 +102,6 @@
             "color": "#d33682",
             "fontWeight": "bold"
         },
-        // FIXME(carter):
     ],
     "todohighlight.include": [
         "**/*.py",
@@ -175,20 +128,29 @@
             "after": ["<Esc>"]
         }
     ],
+    "vim.enableNeovim": true,
     "vim.useSystemClipboard": true,
     "vim.handleKeys": {
-        "<C-a>": false,
+        "<C-a>": true,
         "<C-j>": false,
         "<C-k>": false,
         "<C-n>": true,
         "<C-t>": false,
         "<C-N>": false,
-        "<C-w>": false,
+        "<C-w>": true,
         "<C-o>": false,
         "<C-g>": false,
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "git.confirmSync": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "FSharp.useSdkScripts": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "extensions.ignoreRecommendations": true,
+    "latex-workshop.message.update.show": false,
+    "workbench.editor.untitled.hint": "hidden",
 }
