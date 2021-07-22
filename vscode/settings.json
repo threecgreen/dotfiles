@@ -144,13 +144,15 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "git.confirmSync": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "extensions.ignoreRecommendations": true,
     "latex-workshop.message.update.show": false,
     "workbench.editor.untitled.hint": "hidden",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
 }
