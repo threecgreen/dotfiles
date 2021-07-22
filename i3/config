@@ -166,7 +166,6 @@ hide_edge_borders both
 # AUTOSTART
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 exec_always --no-startup-id $HOME/.config/i3/picom.sh &
-exec --no-startup-id redshift
 exec --no-startup-id rofication-daemon.py
 
 # Pulse Audio controls
