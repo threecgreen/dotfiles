@@ -1,12 +1,6 @@
 # vim: filetype=sh
-# Bash aliases file
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-
 # Case insensitive grep by default
 alias grep='grep -i --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 # Easier navigation upward with cd
 alias ..="cd .."
@@ -30,43 +24,33 @@ alias mkdir="mkdir -pv"
 
 # Alias nvim to vim and vi if installed
 if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
-    alias vi="nvim"
     alias vim="nvim"
 else
     alias nvim="vim"
 fi
 
-# Use bat instead of cat if installed
-cat() {
-    if [ -f $HOME/bin/bat ]; then
-        $HOME/bin/bat -n --theme=GitHub "$@"
-    else
-        /usr/bin/cat "$@";
-    fi
-}
-
-connectGerrit() {
+connect-gerrit() {
     [ $1 ] || { echo "No repository specified" >&2; return 1; }
-    git submodule update --init;
-    git remote add gerrit ssh://gerrit.belvederetrading.com:29418/$1;
+    git submodule update --init
+    git remote add gerrit ssh://gerrit.belvederetrading.com:29418/$1
 }
 
-setupGit() {
+setup-git() {
     [ $1 ]    || { echo "No repository specified" >&2; return 1; }
-    git clone ssh://gerrit:29418/$1;
-    cd $1;
-    connectGerrit $1;
+    git clone ssh://gerrit.belvederetrading.com:29418/$1
+    cd $1
+    connect-gerrit $1
 }
 
 # Local variables
-buildDir="/build/cgreen/laser-build"
-buildDir2="/build/cgreen/laser-build2"
-harborBase="/build/cgreen/git/Harbor"
-harborBase2="/build/cgreen/git/Harbor2"
-pythonDir="$harborBase/Python"
-srcDir="$harborBase/Laser"
-srcDir2="$harborBase2/Laser"
-clangTidyDir="$srcDir/ContinuousDelivery/ClangTidy"
+BUILD_DIR="/build/cgreen/laser-build"
+BUILD_DIR2="/build/cgreen/laser-build2"
+HARBOR_DIR="/build/cgreen/git/Harbor"
+HARBOR_DIR2="/build/cgreen/git/Harbor2"
+PYTHON_DIR="$HARBOR_DIR/Python"
+LASER_DIR="$HARBOR_DIR/Laser"
+LASER_DIR2="$HARBOR_DIR2/Laser"
+CLANG_TIDY_DIR="$LASER_DIR/ContinuousDelivery/ClangTidy"
 
 # Tab completion for ninja targets
 _ninjaComplete() {
@@ -81,50 +65,43 @@ complete -F _ninjaComplete compile
 # complete -F _ninjaComplete compileNoSync
 
 # Find executable in build directory
-findExec() {
-    find "$buildDir/" -type f -executable -name "*$1*"
+find-exec() {
+    find "$BUILD_DIR/" -type f -executable -name "*$1*"
 }
 
 # Run all executables according matching a glob
-execTests() {
+exec-tests() {
     findTests $1 | xargs -n1 command
 }
 
 # Run clang-tidy on changes, specify depth of commits with '-d'
-alias tidy="numactl -C !0 python $clangTidyDir/parallel-clang-tidy-diff.py -p $buildDir -j $(nproc --all)"
+alias tidy="numactl -C !0 python $CLANG_TIDY_DIR/parallel-clang-tidy-diff.py -p $BUILD_DIR -j $(nproc --all)"
 # Run clang-tidy on a file
-alias tidyFile="numactl -C !0 python $clangTidyDir/parallel-clang-tidy.py -j $(nproc --all) -p $buildDir"
+alias tidy-file="numactl -C !0 python $CLANG_TIDY_DIR/parallel-clang-tidy.py -j $(nproc --all) -p $BUILD_DIR"
 # Run clang-format on changes
-alias clangFmt="python $clangTidyDir/ClangFormatter.py -t git -p $harborBase"
+alias clang-fmt="python $CLANG_TIDY_DIR/ClangFormatter.py -t git -p $HARBOR_DIR"
 # Run clang-format on dir
-alias clangFmtDir="python $clangTidyDir/ClangFormatter.py -t directory -p"
+alias clang-fmt-dir="python $CLANG_TIDY_DIR/ClangFormatter.py -t directory -p"
 # Build validation
-alias validate="python $harborBase/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $srcDir --stepDirectory $srcDir/BuildValidation"
+alias validate="python $HARBOR_DIR/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $LASER_DIR --stepDirectory $LASER_DIR/BuildValidation"
 # IWYU
-alias iwyu="numactl -C !0 /usr/bin/python $srcDir/ContinuousDelivery/IWYU/iwyu.py -build $buildDir -src $srcDir"
-
-# fixChronosGenerated() {
-#     # Fix line endings in generated file
-#     if [ -f "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp" ]; then
-#         sed -i 's///g' "$srcDir/BT.ChronosClient.Generated/Private/ChronosScripts.cpp"
-#     fi
-# }
+alias iwyu="numactl -C !0 /usr/bin/python $LASER_DIR/ContinuousDelivery/IWYU/iwyu.py -build $BUILD_DIR -src $LASER_DIR"
 
 # Normal cmake
 ncmake() {
     if [ $# -gt 0 ] && [ $1 = '2' ]; then
-        cmake $srcDir2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
+        cmake $LASER_DIR2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
     else
-        cmake $srcDir -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
+        cmake $LASER_DIR -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
     fi
 }
 
 # Release cmake
 rcmake() {
     if [ $# -gt 0 ] && [ $1 = '2' ]; then
-        cmake $srcDir2 -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
+        cmake $LASER_DIR2 -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
     else
-        cmake $srcDir -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
+        cmake $LASER_DIR -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
     fi
 }
 
@@ -132,10 +109,10 @@ rcmake() {
 nukeit() {
     if [ $# > 0 ] && [ $1 = '2' ]; then
         echo "Wiping build 2 directory..."
-        cd $buildDir2
+        cd $BUILD_DIR2
     else
         echo "Wiping build directory..."
-        cd $buildDir
+        cd $BUILD_DIR
     fi
     find . ! -name 'compile_commands.json' -delete
     ncmake $@
@@ -158,26 +135,26 @@ cgdb() {
 alias glances="/usr/bin/python -m glances"
 
 # Pylint
-alias btpylint="pylint --rcfile="$harborBase/Python/pylint.cfg""
+alias btpylint="pylint --rcfile="$HARBOR_DIR/Python/pylint.cfg""
 
 # Gitlist
 alias gitlist="$HOME/.envs/gitlist/bin/python $HOME/bin/gitlist.py"
 
 # Find latest log
-latestLog() {
+latest-log() {
     local logDir="/var/btlogs/unprivileged/$1"
     echo "$logDir/$(ls -At "$logDir" | awk 'NR==1 { print $1 }')"
 }
 
 # Find replace in working directory
-findReplace() {
+find-replace() {
     [ $1 ]  || { echo "No search term specified" >&2; return -1 }
     [ $2 ]  || { echo "No replace term specified" >&2; return -1 }
     ag -l $1 | xargs sed -i "s/$1/$2/g"
 }
 
 # Delete one or more git branches
-rmBranch() {
+rm-branch() {
     [ $1 ] || { echo "Must specify at least one branch" >&2; return -1 }
     for b in $@
     do
@@ -186,11 +163,11 @@ rmBranch() {
 }
 
 # Clean python hydra deployments older than a week
-cleanPython() {
+clean-python() {
     sudo find /var/cache/btpython -ctime +7 -delete
 }
 
-cleanLaser() {
+clean-laser() {
     sudo find /usr/local/bin -name 'BT.*' -ctime +7 -delete
 }
 
