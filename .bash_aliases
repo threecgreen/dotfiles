@@ -171,3 +171,20 @@ clean-laser() {
     sudo find /usr/local/bin -name 'BT.*' -ctime +7 -delete
 }
 
+# Poseidon
+ALGO_ID=17617
+create-poseidon() {
+    local so_path
+    if [ "$#" = 1 ] && [ "$1" = '2' ]; then
+        so_path="$BUILD_DIR2/BT.Poseidon/BT.Poseidon.so"
+    else
+        so_path="$BUILD_DIR/BT.Poseidon/BT.Poseidon.so"
+    fi
+    sudo ln -sf $so_path /usr/local/lib
+}
+alias start-laser="sudo hydra instance start Laser cgreen_theo --soft-only"
+alias reg-poseidon="sudo hydra algorithm register cgreen_theo $ALGO_ID --force"
+alias start-poseidon="sudo hydra algorithm start cgreen_theo $ALGO_ID --force"
+alias stop-poseidon="sudo hydra algorithm stop cgreen_theo $ALGO_ID --force"
+alias unreg-poseidon="sudo hydra algorithm unregister cgreen_theo $ALGO_ID --force"
+
