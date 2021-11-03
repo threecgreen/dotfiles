@@ -16,9 +16,6 @@ alias l="ls -1Fh"
 alias lt="ls -ltFh"
 alias lat="ls -ltFAh"
 
-# Add custom binaries/scripts
-export PATH=$PATH:$HOME/bin
-
 # Make parent directories if they don"t exist and verbose output
 alias mkdir="mkdir -pv"
 
