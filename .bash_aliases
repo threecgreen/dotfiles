@@ -49,17 +49,34 @@ LASER_DIR="$HARBOR_DIR/Laser"
 LASER_DIR2="$HARBOR_DIR2/Laser"
 CLANG_TIDY_DIR="$LASER_DIR/ContinuousDelivery/ClangTidy"
 
-# Tab completion for ninja targets
-_ninjaComplete() {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=($(compgen -W "$(ninja -t targets all 2> /dev/null | grep -v / | awk -F ':' '{print $1}')" -- $cur))
-}
-complete -F _ninjaComplete ninja
-
 # Shortcut to compile with all cores
-alias compile="numactl -C !0 ninja $1"
-complete -F _ninjaComplete compile
-# complete -F _ninjaComplete compileNoSync
+compile() {
+    numactl -C !0 ninja $@
+}
+# Completion function
+__get_targets() {
+  dir="."
+  if [ -n "${opt_args[-C]}" ];
+  then
+    eval dir="${opt_args[-C]}"
+  fi
+  file="build.ninja"
+  if [ -n "${opt_args[-f]}" ];
+  then
+    eval file="${opt_args[-f]}"
+  fi
+  targets_command="ninja -f \"${file}\" -C \"${dir}\" -t targets all"
+  eval ${targets_command} 2>/dev/null | grep -v / | cut -d: -f1
+}
+__targets() {
+  local -a targets
+  targets=(${(fo)"$(__get_targets)"})
+  _describe 'targets' targets
+}
+_compile() {
+  _arguments '*::targets:__targets'
+}
+compdef _compile compile
 
 # Find executable in build directory
 find-exec() {
