@@ -48,12 +48,14 @@ PYTHON_DIR="$HARBOR_DIR/Python"
 LASER_DIR="$HARBOR_DIR/Laser"
 LASER_DIR2="$HARBOR_DIR2/Laser"
 CLANG_TIDY_DIR="$LASER_DIR/ContinuousDelivery/ClangTidy"
+VIRTUALENV_DIR="$HOME/.envs"
+ANALYZE_PYTHON="$VIRTUALENV_DIR/analyze/bin/python"
 
 # Shortcut to compile with all cores
 compile() {
     numactl -C !0 ninja $@
 }
-# Completion function
+# Completion function for `compile`
 __get_targets() {
   dir="."
   if [ -n "${opt_args[-C]}" ];
@@ -76,6 +78,7 @@ __targets() {
 _compile() {
   _arguments '*::targets:__targets'
 }
+# Zsh completion
 compdef _compile compile
 
 # Find executable in build directory
@@ -100,6 +103,16 @@ alias clang-fmt-dir="python $CLANG_TIDY_DIR/ClangFormatter.py -t directory -p"
 alias validate="python $HARBOR_DIR/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $LASER_DIR --stepDirectory $LASER_DIR/BuildValidation"
 # IWYU
 alias iwyu="numactl -C !0 /usr/bin/python $LASER_DIR/ContinuousDelivery/IWYU/iwyu.py -build $BUILD_DIR -src $LASER_DIR"
+
+# Laser build validation
+val-laser() {
+    local val_processor="Python/PyCD/PyCD/Sonar/BuildValidationCommenter/GenericBuildProcessor.py"
+    if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
+        $ANALYZE_PYTHON $HARBOR_DIR2/$val_processor -R $LASER_DIR2 -d BuildValidation
+    else
+        $ANALYZE_PYTHON $HARBOR_DIR/$val_processor -R $LASER_DIR -d BuildValidation
+    fi
+}
 
 # Normal cmake
 ncmake() {
