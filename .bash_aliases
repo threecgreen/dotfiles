@@ -103,7 +103,7 @@ alias iwyu="numactl -C !0 /usr/bin/python $LASER_DIR/ContinuousDelivery/IWYU/iwy
 
 # Normal cmake
 ncmake() {
-    if [ $# -gt 0 ] && [ $1 = '2' ]; then
+    if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
         cmake $LASER_DIR2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
     else
         cmake $LASER_DIR -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
@@ -112,7 +112,7 @@ ncmake() {
 
 # Release cmake
 rcmake() {
-    if [ $# -gt 0 ] && [ $1 = '2' ]; then
+    if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
         cmake $LASER_DIR2 -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
     else
         cmake $LASER_DIR -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
@@ -121,7 +121,7 @@ rcmake() {
 
 # Wipe build directory and re-run cmake
 nukeit() {
-    if [ $# > 0 ] && [ $1 = '2' ]; then
+    if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
         echo "Wiping build 2 directory..."
         cd $BUILD_DIR2
     else
