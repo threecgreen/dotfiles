@@ -81,14 +81,14 @@ _compile() {
 # Zsh completion
 compdef _compile compile
 
-# Find executable in build directory
+# Find executable in build directory excluding .so files
 find-exec() {
-    find "$BUILD_DIR/" -type f -executable -name "*$1*"
+    fd -t x -E '**/*.so' "$1"
 }
 
 # Run all executables according matching a glob
 exec-tests() {
-    findTests $1 | xargs -n1 command
+    fd -t x -E '**/*.so' "$1" -x sudo
 }
 
 # Run clang-tidy on changes, specify depth of commits with '-d'
