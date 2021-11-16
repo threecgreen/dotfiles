@@ -1,12 +1,6 @@
 # Path to your oh-my-zsh installation.
 ZSH="$HOME/.oh-my-zsh"
 
-# cd $HOME
-
-if [ "$TERM" = "xterm" ]; then
-    export TERM=xterm-256color
-fi
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -74,23 +68,11 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/carter/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/carter/.conda/etc/profile.d/conda.sh" ]; then
-        . "/home/carter/.conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/carter/.conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
 # Include aliases
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
 fi
+
 # Include local aliases
 if [ -f ~/.bash_local ]; then
     . ~/.bash_local
