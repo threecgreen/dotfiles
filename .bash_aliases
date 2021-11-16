@@ -1,32 +1,4 @@
-# Bash aliases file
-# Determine OS
-case $(uname -s) in
-    Linux*) OS="Linux";;
-    Darwin*) OS="macOS";;
-    Solaris*) OS="Solaris";;
-    BSD*) OS="BSD";;
-    CYGWIN*) OS="Cygwin";;
-    MING*) OS="Ming";;
-    *) echo "Unknown OS"
-        OS="unknown";;
-esac
-export $OS
-
-# enable color support of ls
-if [ "$OS" = "macOS" ]; then
-    # Mac specific ls alias
-    alias ls='ls -G'
-else
-    alias ls='ls --color=auto'
-fi
-
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-
-# Case insensitive grep by default
-alias grep='grep -i --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias ls='ls --color=auto'
 
 # Easier navigation upward with cd
 alias ..="cd .."
@@ -46,7 +18,6 @@ alias mkdir="mkdir -pv"
 
 # Alias nvim to vim and vi if installed
 if [[ -f /usr/local/bin/nvim ]] || [[ -f /usr/bin/nvim ]]; then
-    alias vi="nvim"
     alias vim="nvim"
 fi
 
