@@ -36,3 +36,9 @@ if [ -f /usr/bin/alacritty ]; then
     export TERMINAL=alacritty
 fi
 
+find-replace() {
+    [ $1 ] || { echo "No search term specified" >&2; return 1 }
+    [ $2 ] || { echo "No replace term specified" >&2; return 2 }
+    rg -l $1 | xargs -d '\n' sed -i "s|$1|$2|g"
+}
+
