@@ -177,7 +177,7 @@ latest-log() {
 find-replace() {
     [ $1 ]  || { echo "No search term specified" >&2; return -1 }
     [ $2 ]  || { echo "No replace term specified" >&2; return -1 }
-    rg -l $1 | xargs sed -i "s/$1/$2/g"
+    rg -l $1 | xargs sed -ri "s|$1|$2|g"
 }
 
 # Delete one or more git branches
