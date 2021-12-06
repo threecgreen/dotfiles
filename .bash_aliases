@@ -117,18 +117,18 @@ val-laser() {
 # Normal cmake
 ncmake() {
     if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
-        cmake $LASER_DIR2 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
+        cmake $LASER_DIR2 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja
     else
-        cmake $LASER_DIR -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja -DCMAKE_BUILD_TYPE=Debug
+        cmake $LASER_DIR -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja
     fi
 }
 
 # Release cmake
 rcmake() {
     if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
-        cmake $LASER_DIR2 -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
+        cmake $LASER_DIR2 -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja
     else
-        cmake $LASER_DIR -DCMAKE_BUILD_TYPE=Release -DCTAGS_ENABLED=False -GNinja
+        cmake $LASER_DIR -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCTAGS_ENABLED=False -GNinja
     fi
 }
 
