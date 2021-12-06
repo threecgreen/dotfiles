@@ -53,7 +53,7 @@ ANALYZE_PYTHON="$VIRTUALENV_DIR/analyze/bin/python"
 
 # Shortcut to compile with all cores
 compile() {
-    numactl -C !0 ninja $@
+    ninja $@
 }
 # Completion function for `compile`
 __get_targets() {
@@ -92,9 +92,9 @@ exec-tests() {
 }
 
 # Run clang-tidy on changes, specify depth of commits with '-d'
-alias tidy="numactl -C !0 python $CLANG_TIDY_DIR/parallel-clang-tidy-diff.py -p $BUILD_DIR -j $(nproc --all)"
+alias tidy="python $CLANG_TIDY_DIR/parallel-clang-tidy-diff.py -p $BUILD_DIR -j $(nproc --all)"
 # Run clang-tidy on a file
-alias tidy-file="numactl -C !0 python $CLANG_TIDY_DIR/parallel-clang-tidy.py -j $(nproc --all) -p $BUILD_DIR"
+alias tidy-file="python $CLANG_TIDY_DIR/parallel-clang-tidy.py -j $(nproc --all) -p $BUILD_DIR"
 # Run clang-format on changes
 alias clang-fmt="python $CLANG_TIDY_DIR/ClangFormatter.py -t git -p $HARBOR_DIR"
 # Run clang-format on dir
@@ -102,7 +102,7 @@ alias clang-fmt-dir="python $CLANG_TIDY_DIR/ClangFormatter.py -t directory -p"
 # Build validation
 alias validate="python $HARBOR_DIR/Python/BuildUtils/BuildUtils/GenericBuildValidation/ValidateBTBuild.py --projectRoot $LASER_DIR --stepDirectory $LASER_DIR/BuildValidation"
 # IWYU
-alias iwyu="numactl -C !0 /usr/bin/python $LASER_DIR/ContinuousDelivery/IWYU/iwyu.py -build $BUILD_DIR -src $LASER_DIR"
+alias iwyu="/usr/bin/python $LASER_DIR/ContinuousDelivery/IWYU/iwyu.py -build $BUILD_DIR -src $LASER_DIR"
 
 # Laser build validation
 val-laser() {
@@ -148,14 +148,14 @@ nukeit() {
 # Timed build
 tcmake() {
   ccache -z
-  /usr/bin/time -f "Time: %E\t CPU: %P" numactl -C !0 ninja $1
+  /usr/bin/time -f "Time: %E\t CPU: %P" ninja $1
   ccache -s
   fixChronosGenerated
 }
 
 # GDB
 cgdb() {
-    sudo -E ASAN_OPTIONS=abort_on_error=1 numactl -C !0 gdb --args "$@"
+    sudo -E ASAN_OPTIONS=abort_on_error=1 gdb --args "$@"
 }
 
 # Glances
