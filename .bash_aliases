@@ -150,7 +150,6 @@ tcmake() {
   ccache -z
   /usr/bin/time -f "Time: %E\t CPU: %P" ninja $1
   ccache -s
-  fixChronosGenerated
 }
 
 # GDB
