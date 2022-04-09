@@ -48,14 +48,16 @@ endif
 
 colorscheme industry
 
-" Vim Plug
-call plug#begin('~/.local/share/nvim/plugged')
-" Minimalist mode
-Plug 'junegunn/goyo.vim'
-" Better quoting and xml tags
-Plug 'tpope/vim-surround'
-" Visualize undo tree
-Plug 'mbbill/undotree'
-" Fuzzy search
-Plug 'junegunn/fzf'
-call plug#end()
+if !exists('g:vscode')
+    " Vim Plug
+    call plug#begin('~/.local/share/nvim/plugged')
+    " Minimalist mode
+    Plug 'junegunn/goyo.vim'
+    " Better quoting and xml tags
+    Plug 'tpope/vim-surround'
+    " Visualize undo tree
+    Plug 'mbbill/undotree'
+    " Fuzzy search
+    Plug 'junegunn/fzf'
+    call plug#end()
+endif
