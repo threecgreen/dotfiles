@@ -181,6 +181,11 @@ find-replace() {
     rg -l $1 | xargs sed -ri "s|$1|$2|g"
 }
 
+# Json returned by Aether is wrapped in double quotes which isn't valid for use with `jq`
+unquote() {
+    sed -E 's/(^.)|(.$)//g' $1 | sed 's/\\"/"/g'
+}
+
 # Delete one or more git branches
 rm-branch() {
     [ $1 ] || { echo "Must specify at least one branch" >&2; return -1 }
