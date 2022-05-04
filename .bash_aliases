@@ -138,10 +138,10 @@ rcmake() {
 nukeit() {
     if [[ $# > 0 ]] && [[ $1 = '2' ]]; then
         echo "Wiping build 2 directory..."
-        cd $BUILD_DIR2
+        cd $BUILD_DIR2 || return 1
     else
         echo "Wiping build directory..."
-        cd $BUILD_DIR
+        cd $BUILD_DIR || return 1
     fi
     find . ! -name 'compile_commands.json' -delete
     ncmake $@
