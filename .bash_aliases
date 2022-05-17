@@ -53,7 +53,7 @@ fi
 find-replace() {
     [ $1 ] || { echo "No search term specified" >&2; return 1 }
     [ $2 ] || { echo "No replace term specified" >&2; return 2 }
-    rg -l $1 | xargs --delimiter '\n' sed --regexp-extended --in-place "s/$1/$2/g"
+    rg -l $1 | xargs --delimiter '\n' sed --regexp-extended --in-place "s|$1|$2|g"
 }
 
 # Use bat instead of cat if installed
@@ -70,4 +70,5 @@ fi
 if [ -f /usr/bin/alacritty ]; then
     export TERMINAL=alacritty
 fi
+alias hx="helix"
 
