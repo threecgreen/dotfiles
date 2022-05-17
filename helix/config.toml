@@ -3,7 +3,7 @@ theme = "solarized_dark"
 [editor]
 line-number = "relative"
 
-[editr.lsp]
+[editor.lsp]
 display-messages = true
 
 [keys.insert]
