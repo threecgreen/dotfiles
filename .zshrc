@@ -100,3 +100,7 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
