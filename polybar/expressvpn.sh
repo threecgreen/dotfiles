@@ -15,9 +15,10 @@ elif [[ "$fw" == "Connected" ]]; then
     echo $(expressvpn status | head -n 1 | cut -d' ' -f 3-)
 else
     # Global protect
-    gp=$(netctl status global_protect | grep 'Status:' | cut -d ' ' -f 7 | sed -r 's/^"|"$//g')
-    if [[ "$gp" == "online" ]]; then
-        echo "telx development"
+    # gp=$(netctl status global_protect | grep 'Status:' | cut -d ' ' -f 7 | sed -r 's/^"|"$//g')
+    systemctl is-active openvpn-client@databento.service > /dev/null
+    if [[ "$?" == 0 ]]; then
+        echo "databento"
     else
         echo "not connected"
     fi
