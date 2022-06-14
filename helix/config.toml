@@ -3,8 +3,19 @@ theme = "solarized_dark"
 [editor]
 line-number = "relative"
 
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false  # display hidden files
+
 [editor.lsp]
 display-messages = true
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
 
 [keys.insert]
 j = { k = "normal_mode" }
