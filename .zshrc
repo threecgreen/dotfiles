@@ -78,3 +78,8 @@ if [ -f ~/.bash_local ]; then
     . ~/.bash_local
 fi
 
+# pyenv autocompletion
+eval "$(pyenv init -)"
+# pyenv-virtualenv auto activation
+eval "$(pyenv virtualenv-init -)"
+
