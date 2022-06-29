@@ -28,7 +28,7 @@
     # List all branches, both remote and local
     ba = branch -a
     # Delete branch
-    bd = branch -d
+    bD = branch -D
     # Show detailed branch information
     bv = branch -vv
 
