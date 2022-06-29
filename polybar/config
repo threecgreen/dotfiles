@@ -126,7 +126,7 @@ font-2 = "fontawesome:size=12:;0"
 
 modules-left = i3 sys-updates aur-updates
 modules-center = spotify
-modules-right = notifications sep expressvpn sep date
+modules-right = notifications sep expressvpn sep date-full
 
 ; system tray disable
 ;tray-position = center
@@ -363,6 +363,21 @@ date =
 date-alt = "%a %B %e"
 time = %H:%M
 time-alt = %H:%M
+
+format-prefix =
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %date% %time%
+
+; same as date, but starts with the opposite default
+[module/date-full]
+type = internal/date
+interval = 5
+
+format-padding = 0
+
+date = "%a %B %e"
+time = %H:%M
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
