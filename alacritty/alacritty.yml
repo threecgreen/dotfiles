@@ -103,3 +103,5 @@ cursor:
 # Live config reload (changes require restart)
 live_config_reload: true
 
+key_bindings:
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
