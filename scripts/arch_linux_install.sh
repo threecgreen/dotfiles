@@ -7,8 +7,8 @@ wifi-menu
 lsblk
 # Configure partitions
 # 1. 100MB EFI partition # Hex code ef00
-# 2. 250MB /boot partition # Hex code 8300
-# 3. 100% remaining to be encrypted # Hex code 8300
+# 2. 100MB /boot partition # Hex code ef02
+# 3. 100% remaining to be encrypted # Hex code 8309
 cgdisk /dev/sda
 
 # Format EFI and /boot
@@ -16,7 +16,7 @@ mkfs.vfat -F32 /dev/sdX1
 mkfs.ext2 /dev/sdX2
 
 # Setup encryption
-cryptsetup -c aes-xts-plain64 -y --use-random luksFormat /dev/sdX3
+cryptsetup luksFormat /dev/sdX3
 # Type YES
 cryptsetup luksOpen /dev/sdX3 luks
 
@@ -36,7 +36,6 @@ mkfs.ext4 /dev/mapper/vg0-home
 
 # Swap where swapping
 mkswap /path/to/swap
-swapon /path/to/swap
 
 # Mount filesystem
 mount /dev/mapper/vg0-root /mnt
@@ -50,7 +49,8 @@ mkdir /mnt/home
 mount /dev/mapper/vg0-home /mnt/home
 
 # Bootstrap the basic system dependencies, z shell, efi utils and wifi packages
-pacstrap /mnt base base-devel grub-efi-x86_64 zsh vim git efibootmgr dialog wpa_supplicant
+# TODO: update for systemd boot
+pacstrap /mnt base base-devel zsh vim git efibootmgr dialog wpa_supplicant
 
 # Generate filesystem table
 genfstab -pU /mnt >> /mnt/etc/fstab
@@ -94,11 +94,11 @@ vim /etc/mkinitcpio.conf
 # Generate initrd image
 mkinitcpio -p linux
 
-# Configure grub
-grub-install
+# Configure systemd boot
+# grub-install
 # Edit the line GRUB_CMDLINE_LINUX to GRUB_CMDLINE_LINUX="cryptdevice=/dev/sdX3:luks:allow-discards" then run:
-vim /etc/default/grub
-grub-mkconfig -o /boot/grub/grub.cfg
+# vim /etc/default/grub
+# grub-mkconfig -o /boot/grub/grub.cfg
 
 # Update system
 pacman -Syu
