@@ -56,9 +56,13 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 " Visualize undo tree
 Plug 'mbbill/undotree'
-" Fuzzy search
-Plug 'junegunn/fzf'
 " PKGBUILD support
 Plug 'Firef0x/PKGBUILD.vim'
+
+" Vim zettelkasten
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'michal-h21/vim-zettel'
 call plug#end()
 
