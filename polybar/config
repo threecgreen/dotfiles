@@ -324,7 +324,7 @@ format-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp4s0
 interval = 3
 ; Don't show it if disconnected
 format-disconnected = <label-disconnected>
