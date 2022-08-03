@@ -17,6 +17,7 @@
 
 [push]
     default = simple
+    autoSetupRemote = true
 
 [alias]
     aa = add --all
@@ -31,6 +32,8 @@
     bD = branch -D
     # Show detailed branch information
     bv = branch -vv
+    # Rename a branch
+    bm = branch -m
 
     c = commit
     # Stage all modified files that have been added to git
