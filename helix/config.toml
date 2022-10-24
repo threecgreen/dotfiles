@@ -1,11 +1,26 @@
 theme = "solarized_dark"
 
 [editor]
+color-modes = true
 line-number = "relative"
 true-color = true
 
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false # display hidden files
+
+[editor.indent-guides]
+render = true
+
 [editor.lsp]
 display-messages = true
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
 
 [keys.insert]
 j = { k = "normal_mode" }
