@@ -72,3 +72,9 @@ if [ -f /usr/bin/alacritty ]; then
 fi
 alias hx="helix"
 
+# Add newline to EOF if it's missing from files in the given directory
+add-nl-eol() {
+    [ $1 ] || { echo "Missing directory" >&2; return 1; }
+    git ls-files -z $1 | while IFS= read -rd '' f; do tail -c1 < "$f" | read -r _ || echo >> "$f"; done
+}
+
