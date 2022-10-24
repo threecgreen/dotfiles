@@ -63,10 +63,15 @@ anaconda_info() {
   fi
 }
 
+ssh_info() {
+  [[ -n ${SSH_CLIENT} ]] || return
+  echo "%{$fg[yellow]%}@$(hostname)%{$reset_color%} "
+}
+
 local ret_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)"
 
 PROMPT='${ret_status} %{$fg[cyan]%}$(pshort_dir)%{$reset_color%} $(prompt_git)→ '
 # %* is 24-hour format, with seconds
 # RPROMPT='%{$fg[white]%}%* %{$fg[blue]%}$(virtualenv_info)$(anaconda_info)%{$reset_color%}'
-RPROMPT='%*%{$fg[blue]%}$(virtualenv_info)$(anaconda_info)%{$reset_color%}'
+RPROMPT='$(ssh_info)%*%{$fg[blue]%}$(virtualenv_info)$(anaconda_info)%{$reset_color%}'
 
