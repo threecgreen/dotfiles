@@ -1,0 +1,30 @@
+[[language]]
+name = "cpp"
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "json"
+auto-format = false
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "python"
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+formatter = { command = "black" }
+config = """
+{
+  "python": {
+    "analysis": {
+      "autoSearchPaths": true,
+      "diagnosticMode": "workspace",
+      "useLibraryCodeForTypes": true
+    }
+  }
+}
+"""
+
+[[language]]
+name = "typescript"
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
