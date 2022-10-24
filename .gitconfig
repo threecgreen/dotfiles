@@ -18,6 +18,7 @@
     pager = true
 
 [push]
+    autoSetupRemote = true
     default = simple
 
 [pull]
@@ -33,7 +34,9 @@
     # List all branches, both remote and local
     ba = branch -a
     # Delete branch
-    bd = branch -d
+    bD = branch -D
+    # rename branch
+    bm = branch -m
     # Show detailed branch information
     bv = branch -vv
 
