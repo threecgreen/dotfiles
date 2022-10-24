@@ -1,6 +1,7 @@
 theme = "solarized_dark"
 
 [editor]
+color-modes = true
 line-number = "relative"
 
 [editor.cursor-shape]
