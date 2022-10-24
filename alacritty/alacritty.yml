@@ -64,7 +64,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 9.0
+  size: 9.5
 
 # Colors (Tomorrow Night Bright)
 colors:
