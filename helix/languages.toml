@@ -1,0 +1,21 @@
+[[language]]
+name = "cpp"
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+language-server = { command = "/opt/homebrew/opt/llvm/bin/clangd" }
+
+[[language]]
+name = "python"
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+formatter = { command = "black" }
+config = """
+{
+  "python": {
+    "analysis": {
+      "autoSearchPaths": true,
+      "diagnosticMode": "workspace",
+      "useLibraryCodeForTypes": true
+    }
+  }
+}
+"""
