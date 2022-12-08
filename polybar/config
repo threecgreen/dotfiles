@@ -411,7 +411,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
 warn-temperature = 60
 interval = 5
 format = <ramp> <label>
@@ -539,7 +539,8 @@ format-prefix-foreground = ${colors.foreground-alt}
 [module/gpu-temperature]
 type = internal/temperature
 ; junction sensor
-hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:0a:00.0/0000:0b:00.0/0000:0c:00.0/hwmon/hwmon2/temp2_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:0b:00.0/0000:0c:00.0/0000:0d:00.0/hwmon/hwmon3/temp2_input
+; hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:0a:00.0/0000:0b:00.0/0000:0c:00.0/hwmon/hwmon2/temp2_input
 warn-temperature = 80
 interval = 5
 format = <ramp> <label>
