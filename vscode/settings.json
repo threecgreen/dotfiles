@@ -12,8 +12,8 @@
     "editor.renderWhitespace": "none",
     "editor.rulers": [100],
     "editor.scrollBeyondLastLine": false,
-    "editor.wordWrap": "on",
-    "editor.wrappingIndent": "indent",
+    "editor.wordWrap": "off",
+    // "editor.wrappingIndent": "indent",
     // Don't show useless openEditors window
     "explorer.openEditors.visible": 0,
     // Only associate HTML files in django projects with django HTML
