@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,run,ssh";
+	modi: "emoji,run,ssh,window";
 	width: 35;
 	lines: 15;
 	font: "Hasklig 18";

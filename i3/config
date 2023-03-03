@@ -38,6 +38,9 @@ bindsym $mod+Shift+q kill
 # start rofi launcher
 bindsym $mod+d exec sh -c "rofi -show run"
 
+# start rofi emoji picker
+bindsym $mod+e exec sh -c "rofi -show emoji"
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
