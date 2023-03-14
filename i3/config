@@ -163,7 +163,10 @@ gaps outer 0
 # smart_gaps on
 
 # Borders
-for_window [class=".*"] border pixel 0
+default_border none
+# Only affects windows started as floating
+default_floating_border normal 4
+for_window [floating] border pixel 4
 hide_edge_borders both
 
 # AUTOSTART
@@ -239,3 +242,17 @@ workspace 7 output HDMI-A-0
 workspace 8 output HDMI-A-0
 workspace 9 output HDMI-A-0
 workspace 10 output HDMI-A-0
+
+# Scratchpad (an invisible workspace)
+bindsym $mod+Shift+minus move scratchpad
+# show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# Sticky
+bindsym $mod+Shift+s sticky toggle
+
+# start ipython window
+for_window [title="python-scratch"] move scratchpad, floating enable, sticky enable, move position 30 ppt 20 ppt, resize set width 1600 px height 800 px
+exec_always alacritty -t python-scratch -e ipython
+bindsym $mod+Shift+p exec "alacritty -t python-scratch -e ipython"
+bindsym $mod+p [title="python-scratch"] scratchpad show
