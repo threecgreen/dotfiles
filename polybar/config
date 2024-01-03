@@ -65,7 +65,7 @@ font-2 = unifont:fontformat=truetype:size=13:antialias=false;0
 font-3 = siji:size=14;1
 font-4 = fontawesome:size=15;0
 
-modules-left = i3 wlan sep memory sep cpu sep gpu sep temperature gpu-temperature
+modules-left = i3 wlan eth sep memory sep cpu sep gpu sep temperature gpu-temperature
 modules-center = spotify
 modules-right = notifications sep redshift keyboard sep audio-sink volume sep date powermenu
 
@@ -324,7 +324,7 @@ format-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlan0
 interval = 3
 ; Don't show it if disconnected
 format-disconnected = <label-disconnected>
@@ -333,19 +333,22 @@ label-disconnected =  none
 format-connected = <ramp-signal><label-connected>
 label-connected = " %essid%"
 
-ramp-signal-0 = ""
-ramp-signal-1 =""
-ramp-signal-2 =""
+ramp-signal-0 = "·"
+ramp-signal-1 = "··"
+ramp-signal-2 = "···"
+ramp-signal-3 = "····"
+ramp-signal-4 = "·····"
+ramp-signal-5 = "······"
 
 [module/eth]
 type = internal/network
-interface = @INTERFACE_ETH@
+interface = enp5s0
 interval = 3.0
 
-format-connected-underline = #55aa55
+; format-connected-underline = #55aa55
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+; format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = "eth"
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
