@@ -151,10 +151,14 @@
     },
     "extensions.ignoreRecommendations": true,
     "latex-workshop.message.update.show": false,
-    "workbench.editor.untitled.hint": "hidden",
     "latex-workshop.view.pdf.viewer": "tab",
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
+    "lldb.suppressUpdateNotifications": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "workbench.editor.empty.hint": "hidden",
 }
